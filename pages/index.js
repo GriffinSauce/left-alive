@@ -140,7 +140,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                       >
                         <img
-                          src="/img/promise-single.jpg"
+                          src="/img/release-promise.jpg"
                           alt="Promise single"
                         />
                       </a>
@@ -151,7 +151,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <img src="/img/liars-single.jpg" alt="Liars single" />
+                        <img src="/img/release-liars.jpg" alt="Liars single" />
                       </a>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                       >
                         <img
-                          src="/img/leaveit-comingsoon.jpg"
+                          src="/img/release-leaveit.jpg"
                           alt="Leave it single"
                         />
                       </a>
@@ -174,7 +174,10 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <img src="/img/empty-ep.jpg" alt="Empty Sidewalks EP" />
+                        <img
+                          src="/img/release-empty.jpg"
+                          alt="Empty Sidewalks EP"
+                        />
                       </a>
                     </div>
                   </div>
