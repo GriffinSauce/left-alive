@@ -1,0 +1,67 @@
+@tailwind base;
+
+html {
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  @apply text-gray-800;
+}
+
+/**
+ * Protip: don't add any margins here, margins are part of the layout, not the element
+ **/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @apply font-display font-bold;
+}
+
+h1,
+.h1 {
+  @apply text-xl font-bold;
+}
+h2,
+.h2 {
+  @apply text-lg font-semibold;
+}
+h3,
+.h3 {
+  @apply text-base font-semibold;
+}
+h4,
+.h4 {
+  @apply text-sm font-semibold;
+}
+h5,
+.h5 {
+  @apply text-sm font-semibold;
+}
+h6,
+.h6 {
+  @apply text-xs font-semibold;
+}
+
+label,
+.label {
+  @apply font-display font-bold;
+}
+
+input {
+  @apply block p-2 bg-white text-black w-full;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+@tailwind components;
+@tailwind utilities;

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import FacebookFeed from '../components/FacebookFeed';
 
 export default function Home() {
   return (
@@ -308,7 +309,9 @@ export default function Home() {
                 <div className="button-attachment">
                   Like us to get the latest news on shows and other adventures!
                 </div>
-                <div className="btn-after facebook-feed">[widget-area-3]</div>
+                <div className="btn-after facebook-feed border-t border-grey-100">
+                  <FacebookFeed />
+                </div>
               </div>
               <div className="col-sm-6 column">
                 <a
@@ -322,7 +325,7 @@ export default function Home() {
                 </a>
                 <div className="instagram-feed">
                   {/* <!-- Edit settings: https://lightwidget.com/edit-widget/4fab75b606525d2794cc290613ccfa9e (log in w. leftaliveband insta) --> */}
-                  <script src="//lightwidget.com/widgets/lightwidget.js" />
+                  {/* <script src="//lightwidget.com/widgets/lightwidget.js" />
                   <iframe
                     title="Insta feed"
                     src="//lightwidget.com/widgets/4fab75b606525d2794cc290613ccfa9e.html"
@@ -334,7 +337,7 @@ export default function Home() {
                       border: 0,
                       overflow: 'hidden',
                     }}
-                  />
+                  /> */}
                 </div>
               </div>
             </section>
