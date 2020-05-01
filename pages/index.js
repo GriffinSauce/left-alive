@@ -1,75 +1,19 @@
-import Head from 'next/head';
+import Nav from '../components/Nav';
+import Releases from '../components/Releases';
+import MerchBanner from '../components/MerchBanner';
 import FacebookFeed from '../components/FacebookFeed';
+import InstaFeed from '../components/InstaFeed';
+import NewsletterForm from '../components/NewsletterForm';
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Left Alive</title>
-        <link rel="icon" href="/favicon.ico" />
-
-        <link href="//www.google-analytics.com" rel="dns-prefetch" />
-        <link href="/img/icons/favicon.ico" rel="shortcut icon" />
-        <link href="/img/icons/touch.png" rel="apple-touch-icon-precomposed" />
-
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#00869d" />
-
-        <meta
-          property="og:title"
-          content="Left Alive - Pop punk from the heart"
-        />
-        <meta property="og:url" content="http://www.leftalive.nl/" />
-        <meta
-          property="og:image"
-          content="http://www.leftalive.nl/wp-content/themes/LeftAliveWPTheme/img/leftalive.jpg"
-        />
-        <meta
-          property="og:description"
-          content="Danceable, fast-paced and super energetic: Left Alive play pop punk from the heart!"
-        />
-        <meta property="og:site_name" content="Left Alive" />
-
-        <link
-          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,700italic"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link rel="stylesheet" href="https://use.typekit.net/fue2pbb.css" />
-      </Head>
-
-      <div className="navigation-wrapper">
-        <div className="container">
-          <nav className="col-xs-12 col-sm-10 col-sm-push-1">
-            <ul className="navigation">
-              <li>
-                <a href="#music">Music</a>
-              </li>
-              <li>
-                <a href="#socials">Social</a>
-              </li>
-              <li>
-                <a href="/events">Shows</a>
-              </li>
-              <li>
-                <a
-                  href="https://www.epicmerchstore.com/collection/left-alive/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Merch
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <Nav />
 
       <div className="header-wrapper">
         <div className="container">
           <header className="header col-xs-12" role="banner">
-            <a href="/">
+            <a href="/" className="inline-block">
               <img
                 alt="Left Alive - pop punk from the heart"
                 id="headerimg"
@@ -133,93 +77,7 @@ export default function Home() {
                   <div>Listen on Spotify</div>
                 </a>
                 <div className="button-attachment releases">
-                  <div className="row">
-                    <div className="col-xs-6">
-                      <a
-                        href="https://open.spotify.com/track/1oxMxW9wyF7AgP3QSRHSbX"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          src="/img/release-promise.jpg"
-                          alt="Promise single"
-                        />
-                      </a>
-                    </div>
-                    <div className="col-xs-6">
-                      <a
-                        href="https://open.spotify.com/track/5wCDNamRAJvFyHWjm9l5y2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img src="/img/release-liars.jpg" alt="Liars single" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xs-6">
-                      <a
-                        href="https://open.spotify.com/track/51josIdonJjiuQaTU7ISpV"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          src="/img/release-leaveit.jpg"
-                          alt="Leave it single"
-                        />
-                      </a>
-                    </div>
-                    <div className="col-xs-6">
-                      <a
-                        href="https://open.spotify.com/album/56uLvj0p9a24aUwFvPUBrQ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          src="/img/release-empty.jpg"
-                          alt="Empty Sidewalks EP"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="music-links">
-                    <a
-                      href="https://music.apple.com/us/album/liars/1461679307?i=1461679308&amp;uo=4&amp;app=music&amp;ls=1&amp;at=1000lHKX"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Listen to Left Alive on Apple Music"
-                    >
-                      <img src="/img/icons/icon-apple-music.svg" alt="" />
-                      <div>Apple Music</div>
-                    </a>
-                    <a
-                      href="https://open.spotify.com/artist/128KZvfmYDa6R9uuma8u1A?si=t-KS0MCPQWWqpD7IZS8-zQ"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Listen to Left Alive on Spotify"
-                    >
-                      <img src="/img/icons/icon-spotify.svg" alt="" />
-                      <div>Spotify</div>
-                    </a>
-                    <a
-                      href="https://www.youtube.com/leftalive"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Listen to Left Alive - Left Alive on YouTube"
-                    >
-                      <img src="/img/icons/icon-youtube.svg" alt="" />
-                      <div>YouTube</div>
-                    </a>
-                    <a
-                      href="https://soundcloud.com/leftalive/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Listen to Left Alive on SoundCloud"
-                    >
-                      <img src="/img/icons/icon-soundcloud.svg" alt="" />
-                      <div>Soundcloud</div>
-                    </a>
-                  </div>
+                  <Releases />
                 </div>
               </div>
               <div className="col-sm-6 column">
@@ -256,43 +114,7 @@ export default function Home() {
               </div>
             </section>
 
-            <a
-              href="https://www.epicmerchstore.com/collection/artists/left-alive/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="merch"
-              id="merch"
-            >
-              <div className="row">
-                <div className="col-12">
-                  <h2>MERCH</h2>
-                  <p>Get some at Epic Merch Store!</p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="column-left col-sm-6">
-                  <img
-                    className="beanies"
-                    alt="beanies merch"
-                    src="/img/merch-beanies.png"
-                    srcSet="/img/merch-beanies.png, /img/merch-beanies@2x.png 2x"
-                  />
-                </div>
-                <div className="column-right col-sm-6">
-                  <img
-                    className="shirts"
-                    alt="shirts"
-                    src="/img/merch-shirts.png"
-                    srcSet="/img/merch-shirts.png, /img/merch-shirts@2x.png 2x"
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-12">
-                  <div className="button button-merch">See more</div>
-                </div>
-              </div>
-            </a>
+            <MerchBanner />
 
             <section className="row with-columns socials">
               <div className="offset-anchor" id="socials" />
@@ -323,22 +145,7 @@ export default function Home() {
                   <img src="/img/icons/icon-instagram-white.png" alt="" />
                   <div>Follow us on instagram</div>
                 </a>
-                <div className="instagram-feed">
-                  {/* <!-- Edit settings: https://lightwidget.com/edit-widget/4fab75b606525d2794cc290613ccfa9e (log in w. leftaliveband insta) --> */}
-                  <script src="//lightwidget.com/widgets/lightwidget.js" />
-                  <iframe
-                    title="Insta feed"
-                    src="//lightwidget.com/widgets/4fab75b606525d2794cc290613ccfa9e.html"
-                    scrolling="no"
-                    allowtransparency="true"
-                    className="lightwidget-widget"
-                    style={{
-                      width: '100%',
-                      border: 0,
-                      overflow: 'hidden',
-                    }}
-                  />
-                </div>
+                <InstaFeed />
               </div>
             </section>
 
@@ -350,39 +157,7 @@ export default function Home() {
                   from us!
                 </p>
               </div>
-              <form method="post">
-                <div className="form-fields">
-                  <p>
-                    <input
-                      type="text"
-                      name="FNAME"
-                      placeholder="your name"
-                      required=""
-                    />
-                  </p>
-                  <p>
-                    <input
-                      type="email"
-                      name="EMAIL"
-                      placeholder="email"
-                      required=""
-                    />
-                  </p>
-                  <p>
-                    <input type="submit" value="Sign me up!" />
-                  </p>
-                </div>
-                <label style={{ display: 'none' }} htmlFor="newsletter_hp">
-                  {`Leave this field empty if you're human: `}
-                  <input
-                    type="text"
-                    name="newsletter_hp"
-                    value=""
-                    tabIndex="-1"
-                    autoComplete="off"
-                  />
-                </label>
-              </form>
+              <NewsletterForm />
             </section>
 
             <div className="contact">
