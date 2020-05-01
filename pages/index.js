@@ -325,7 +325,7 @@ export default function Home() {
                 </a>
                 <div className="instagram-feed">
                   {/* <!-- Edit settings: https://lightwidget.com/edit-widget/4fab75b606525d2794cc290613ccfa9e (log in w. leftaliveband insta) --> */}
-                  {/* <script src="//lightwidget.com/widgets/lightwidget.js" />
+                  <script src="//lightwidget.com/widgets/lightwidget.js" />
                   <iframe
                     title="Insta feed"
                     src="//lightwidget.com/widgets/4fab75b606525d2794cc290613ccfa9e.html"
@@ -337,7 +337,7 @@ export default function Home() {
                       border: 0,
                       overflow: 'hidden',
                     }}
-                  /> */}
+                  />
                 </div>
               </div>
             </section>
