@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import fetcher from '../utils/fetcher';
 
 const NewsletterForm = () => {
-  const { isLoading, setLoading } = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = async (values) => {
     setLoading(true);
@@ -68,6 +68,7 @@ const NewsletterForm = () => {
           value=""
           tabIndex="-1"
           autoComplete="off"
+          ref={register()}
         />
       </label>
     </form>
