@@ -54,11 +54,11 @@ const NewsletterForm = () => {
           <button type="submit">Sign me up!</button>
         </p>
       </div>
-      <label style={{ display: 'none' }} htmlFor="newsletter_hp">
+      <label style={{ display: 'none' }} htmlFor="hp">
         {`Leave this field empty if you're human: `}
         <input
           type="text"
-          name="newsletter_hp"
+          name="hp"
           value=""
           tabIndex="-1"
           autoComplete="off"

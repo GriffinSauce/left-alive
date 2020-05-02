@@ -2,11 +2,11 @@
 import fetch from 'isomorphic-unfetch';
 
 export default async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, hp: honeypot } = req.body;
 
-  if (!email) {
-    return res.status(400).json({ error: 'Email is required' });
-  }
+  if (honeypot) return res.status(400).json({ error: 'Email is required' }); // Opaqua error for bots
+  if (!email) return res.status(400).json({ error: 'Email is required' });
+  if (!name) return res.status(400).json({ error: 'Name is required' });
 
   try {
     const LIST_ID = process.env.MAILCHIMP_LIST_ID;
