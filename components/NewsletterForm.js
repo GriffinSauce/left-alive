@@ -1,15 +1,57 @@
+import { useForm } from 'react-hook-form';
+import fetcher from '../utils/fetcher';
+
 const NewsletterForm = () => {
+  const { handleSubmit, register, errors } = useForm();
+  const onSubmit = async (values) => {
+    try {
+      await fetcher(`/api/newsletter-signup`, {
+        method: 'POST',
+        body: values,
+      });
+    } catch (err) {
+      console.log('err', err);
+      // TODO
+    }
+  };
+
   return (
-    <form method="post">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-fields">
         <p>
-          <input type="text" name="FNAME" placeholder="your name" required="" />
+          <input
+            type="text"
+            name="name"
+            placeholder="your name"
+            required=""
+            ref={register({
+              required: 'please add your name',
+              pattern: {
+                value: /[a-z]+/i,
+                message: 'please add your name',
+              },
+            })}
+          />
+          {errors.name && errors.name.message}
         </p>
         <p>
-          <input type="email" name="EMAIL" placeholder="email" required="" />
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            required=""
+            ref={register({
+              required: 'please add your email',
+              pattern: {
+                value: /@/,
+                message: 'invalid email address',
+              },
+            })}
+          />
+          {errors.email && errors.email.message}
         </p>
         <p>
-          <input type="submit" value="Sign me up!" />
+          <button type="submit">Sign me up!</button>
         </p>
       </div>
       <label style={{ display: 'none' }} htmlFor="newsletter_hp">

@@ -334,7 +334,12 @@ input:focus {
   font-weight: 400;
   border: none;
 }
-.newsletter form input[type='submit'] {
+.newsletter form button {
+  width: 100%;
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
   color: #fff;
   background-color: #007d8a;
@@ -342,7 +347,7 @@ input:focus {
   border: none;
   transition: color 100ms ease, background-color 100ms ease;
 }
-.newsletter form input[type='submit']:hover {
+.newsletter form button:hover {
   color: #007d8a;
   background-color: #e2e2e2;
 }
