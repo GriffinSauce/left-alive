@@ -1,22 +1,26 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import fetcher from '../utils/fetcher';
 
 const NewsletterForm = () => {
-  const [isLoading, setLoading] = useState(false);
-  const { handleSubmit, register, errors } = useForm();
+  const {
+    handleSubmit,
+    register,
+    errors,
+    setError,
+    clearError,
+    formState: { isSubmitting },
+  } = useForm();
   const onSubmit = async (values) => {
-    setLoading(true);
+    clearError('submit');
     try {
       await fetcher(`/api/newsletter-signup`, {
         method: 'POST',
         body: values,
       });
     } catch (err) {
-      console.log('err', err);
-      // TODO: error handle
+      console.error(err);
+      setError('submit');
     }
-    setLoading(false);
   };
 
   return (
@@ -36,7 +40,7 @@ const NewsletterForm = () => {
               },
             })}
           />
-          {errors.name && errors.name.message}
+          {errors?.name?.message}
         </p>
         <p>
           <input
@@ -52,13 +56,18 @@ const NewsletterForm = () => {
               },
             })}
           />
-          {errors.email && errors.email.message}
         </p>
         <p>
-          <button type="submit" disabled={isLoading}>
+          <button type="submit" disabled={isSubmitting}>
             Sign me up!
           </button>
         </p>
+        {errors.submit ? (
+          <p className="text-sm">
+            Something went wrong, please try again or send an email to
+            <a href="mailto:mail@leftalive.nl">mail@leftalive.nl</a>
+          </p>
+        ) : null}
       </div>
       <label style={{ display: 'none' }} htmlFor="hp">
         {`Leave this field empty if you're human: `}

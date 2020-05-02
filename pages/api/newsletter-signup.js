@@ -34,7 +34,7 @@ export default async (req, res) => {
     );
 
     if (response.status >= 400) {
-      console.log(`Error signing up for newsletter`, await response.json());
+      console.info(`Error signing up for newsletter`, await response.json());
       return res.status(400).json({
         error: `There was an error subscribing to the newsletter. Shoot me an email at [mail@leftalive.nl] and we'll add you to the list.`,
       });
@@ -42,6 +42,8 @@ export default async (req, res) => {
 
     return res.status(201).json({ error: '' });
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+    const errorMessage = error.message || error.toString();
+    console.info(`Error signing up for newsletter ${errorMessage}`);
+    return res.status(500).json({ error: errorMessage });
   }
 };
