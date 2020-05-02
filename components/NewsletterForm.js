@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import fetcher from '../utils/fetcher';
 
 const NewsletterForm = () => {
+  const { isLoading, setLoading } = useState(false);
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = async (values) => {
+    setLoading(true);
     try {
       await fetcher(`/api/newsletter-signup`, {
         method: 'POST',
@@ -11,8 +14,9 @@ const NewsletterForm = () => {
       });
     } catch (err) {
       console.log('err', err);
-      // TODO
+      // TODO: error handle
     }
+    setLoading(false);
   };
 
   return (
@@ -51,7 +55,9 @@ const NewsletterForm = () => {
           {errors.email && errors.email.message}
         </p>
         <p>
-          <button type="submit">Sign me up!</button>
+          <button type="submit" disabled={isLoading}>
+            Sign me up!
+          </button>
         </p>
       </div>
       <label style={{ display: 'none' }} htmlFor="hp">
