@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import '../styles/style.css';
-import '../styles/responsive.css';
 import '../styles/index.css';
 
 export default ({ Component, pageProps }) => {

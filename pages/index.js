@@ -6,34 +6,42 @@ import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 
+// Keep this a complete class to tailwind purge doesn't kill it
+const COLUMN_V_GAP = 'gap-12';
+
+// Offset anchor up a bit for more human nav
+const Anchor = ({ id }) => <div id={id} className="absolute -mt-10" />;
+
 export default function Home() {
   return (
-    <>
+    <div className="bg-gray-300">
       <Nav />
 
-      <div className="header-wrapper">
-        <div className="container flex justify-center">
-          <header className="header py-12" role="banner">
-            <a href="/" className="inline-block">
-              <img
-                alt="Left Alive - pop punk from the heart"
-                id="headerimg"
-                src="/img/logo.svg"
-              />
-            </a>
-          </header>
-        </div>
+      <div className="bg-white">
+        <header role="banner" className="container flex justify-center">
+          <a href="/" className="block w-full py-12">
+            <img
+              alt="Left Alive - pop punk from the heart"
+              id="headerimg"
+              src="/img/logo.svg"
+            />
+          </a>
+        </header>
       </div>
 
-      <div className="hero-image" />
+      <img
+        className="object-cover w-full hero-image bg-grey-900"
+        src="/img/hero.jpg"
+        alt="The band on stage"
+      />
 
-      <div className="container content-container">
+      <div className={`container grid ${COLUMN_V_GAP} -mt-10 sm:-mt-40`}>
         <section className="">
-          <h2 className="page-title text-3xl sm:text-5xl">
+          <h2 className="py-2 text-3xl text-center text-white page-title sm:text-5xl">
             WE ARE LEFT ALIVE!
           </h2>
 
-          <div className="bg-white p-6 text-lg grid gap-3">
+          <div className="grid gap-3 p-6 text-lg bg-white">
             <p>
               Danceable, fast-paced and super energetic: Left Alive play pop
               punk from the heart. The quintet combine catchy riffs like those
@@ -65,9 +73,9 @@ export default function Home() {
           <div>[widget area 1]</div>
         </section>
 
-        <section className="grid sm:grid-cols-2 gap-6">
+        <section className={`grid ${COLUMN_V_GAP} sm:grid-cols-2 sm:gap-6`}>
           <div>
-            <div className="offset-anchor" id="music" />
+            <Anchor id="music" />
             <a
               className="button button-spotify"
               href="https://open.spotify.com/artist/128KZvfmYDa6R9uuma8u1A"
@@ -77,7 +85,7 @@ export default function Home() {
               <img src="/img/icons/icon-spotify-white.png" alt="" />
               <div>Listen on Spotify</div>
             </a>
-            <div className="bg-white p-3 releases">
+            <div className="p-3 bg-white releases">
               <Releases />
             </div>
           </div>
@@ -97,13 +105,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-10">
-          <MerchBanner />
-        </section>
+        <MerchBanner />
 
-        <section className="grid sm:grid-cols-2 gap-6">
+        <section className={`grid ${COLUMN_V_GAP} sm:grid-cols-2 sm:gap-6`}>
           <div>
-            <div className="offset-anchor" id="socials" />
+            <Anchor id="socials" />
             <a
               className="button button-fb"
               href="https://facebook.com/leftaliveband"
@@ -113,7 +119,7 @@ export default function Home() {
               <img src="/img/icons/icon-fb-white.png" alt="" />
               <div>Like us on Facebook</div>
             </a>
-            <div className="bg-white p-3">
+            <div className="p-3 bg-white">
               Like us to get the latest news on shows and other adventures!
             </div>
             <div className="border-t btn-after facebook-feed border-grey-100">
@@ -136,19 +142,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="newsletter" id="newsletter">
-          <div className="copy">
-            <h3>NO FB?</h3>
-            <p>
+        <section
+          className="flex flex-col items-center py-12 text-center text-white bg-cover newsletter"
+          id="newsletter"
+        >
+          <div className="grid max-w-xs gap-4">
+            <h3 className="text-4xl sm:text-5xl">NO SOCIALS?</h3>
+            <p className="text-lg">
               No problem! Sign up for the newsletter to get updates straight
               from us!
             </p>
+            <NewsletterForm />
           </div>
-          <NewsletterForm />
         </section>
 
-        <div className="contact">
-          <h3>Contact</h3>
+        <div className="grid gap-3 text-center">
+          <h3 className="text-2xl">Contact</h3>
           <p>
             <a href="mailto:mail@leftalive.nl">mail@leftalive.nl</a>
           </p>
@@ -160,7 +169,10 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <footer className="footer" role="contentinfo">
+        <footer
+          className="py-12 text-xs italic text-center text-gray-600"
+          role="contentinfo"
+        >
           <p className="copyright">
             &copy; 2020 Copyright Left Alive.
             <br />
@@ -172,6 +184,6 @@ export default function Home() {
           </p>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
