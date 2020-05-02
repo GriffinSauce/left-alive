@@ -145,7 +145,9 @@ export default function Home() {
                   <img src="/img/icons/icon-instagram-white.png" alt="" />
                   <div>Follow us on instagram</div>
                 </a>
-                <InstaFeed />
+                <div className="mt-1">
+                  <InstaFeed />
+                </div>
               </div>
             </section>
 

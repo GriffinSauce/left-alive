@@ -6,9 +6,8 @@ import fetcher from '../utils/fetcher';
 const FacebookFeed = () => {
   const items = 2;
   const { data, error } = useSWR(
-    `https://www.juicer.io/api/feeds/left-alive-fb?per=${items}&page=1`,
+    `https://www.juicer.io/api/feeds/left-alive?per=${items}&page=1&filter=Facebook`,
     fetcher,
-    {},
   );
 
   if (error) return '';

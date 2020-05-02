@@ -1,21 +1,27 @@
+/* eslint-disable react/no-danger */
+import useSWR from 'swr';
+import fetcher from '../utils/fetcher';
+
 const InstaFeed = () => {
+  const items = 12;
+  const { data, error } = useSWR(
+    `https://www.juicer.io/api/feeds/left-alive?per=${items}&page=1&filter=Instagram`,
+    fetcher,
+  );
+
+  if (error) return '';
+  if (!data) return 'Loading...';
+
   return (
-    <div className="instagram-feed">
-      {/* <!-- Edit settings: https://lightwidget.com/edit-widget/4fab75b606525d2794cc290613ccfa9e (log in w. leftaliveband insta) --> */}
-      <script src="//lightwidget.com/widgets/lightwidget.js" />
-      <iframe
-        title="Insta feed"
-        src="//lightwidget.com/widgets/4fab75b606525d2794cc290613ccfa9e.html"
-        scrolling="no"
-        allowtransparency="true"
-        className="lightwidget-widget"
-        style={{
-          width: '100%',
-          border: 0,
-          overflow: 'hidden',
-        }}
-      />
-    </div>
+    <ul className="grid grid-cols-3 gap-1">
+      {data.posts.items.map((item) => (
+        <li key={item.id}>
+          <a href={item.full_url} rel="noopener noreferrer" target="_blank">
+            <img src={item.image} alt="" />
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 };
 
