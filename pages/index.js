@@ -114,7 +114,9 @@ export default function Home() {
               </div>
             </section>
 
-            <MerchBanner />
+            <section className="mb-10">
+              <MerchBanner />
+            </section>
 
             <section className="row with-columns socials">
               <div className="offset-anchor" id="socials" />
