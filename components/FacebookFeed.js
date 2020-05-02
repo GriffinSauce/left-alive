@@ -4,13 +4,12 @@ import useSWR from 'swr';
 import fetcher from '../utils/fetcher';
 
 const FacebookFeed = () => {
-  const items = 4;
+  const items = 2;
   const { data, error } = useSWR(
-    `https://www.juicer.io/api/feeds/1435184830066534?per=${items}&page=1`,
+    `https://www.juicer.io/api/feeds/left-alive-fb?per=${items}&page=1`,
     fetcher,
     {},
   );
-  // console.log('FacebookFeed -> data.posts.items', data?.posts?.items);
 
   if (error) return '';
   if (!data) return 'Loading...';
@@ -20,7 +19,7 @@ const FacebookFeed = () => {
       {data.posts.items.map((item) => (
         <li
           key={item.id}
-          className="bg-white w-full p-3 break-words border-b border-grey-100"
+          className="w-full p-3 break-words bg-white border-b border-grey-100"
         >
           <a
             href="poster_url"
@@ -28,11 +27,11 @@ const FacebookFeed = () => {
             target="_blank"
             className="block mb-2"
           >
-            <h3 className="flex items-center text-base font-sans font-semibold">
+            <h3 className="flex items-center font-sans text-base font-semibold">
               <img
                 src={item.poster_image}
                 alt=""
-                className="rounded-full mr-2 w-8 h-8"
+                className="w-8 h-8 mr-2 rounded-full"
               />
               <span>{item.poster_name}</span>
             </h3>
@@ -50,7 +49,7 @@ const FacebookFeed = () => {
             <a
               href={item.full_url}
               rel="noopener noreferrer"
-              className="text-xs flex items-center justify-end"
+              className="flex items-center justify-end text-xs"
               target="_blank"
             >
               <div className="flex items-center mr-2">
