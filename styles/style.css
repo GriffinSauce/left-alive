@@ -59,43 +59,6 @@ input:focus {
 \*------------------------------------*/
 
 /* nav */
-.navigation-wrapper {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 999;
-}
-.navigation-wrapper nav {
-  padding: 0;
-}
-.navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  text-align: center;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-}
-.navigation li {
-  display: block;
-}
-.navigation li a {
-  display: block;
-  color: #999;
-  font-size: 0.8rem;
-  padding: 0.6rem 0.2rem;
-  border-bottom: 2px solid #fff;
-  -webkit-transition: border 150ms ease;
-  transition: border 150ms ease;
-}
-.navigation li a:hover {
-  color: #ff8da1;
-  border-bottom-color: #ff8da1;
-}
 
 /* offset anchor to counter navbar height */
 .offset-anchor {
@@ -106,10 +69,6 @@ input:focus {
 /* header */
 .header-wrapper {
   background-color: #fff;
-}
-.header {
-  margin: 30px auto;
-  text-align: center;
 }
 .header img {
   width: 780px;
@@ -154,10 +113,7 @@ input:focus {
 }
 
 .page-title {
-  margin: 0 -15px 15px -15px;
   padding: 15px 5px;
-  font-size: 1.6rem;
-  font-weight: 400;
   text-transform: uppercase;
   color: #fff;
   background-color: #007d8a;
@@ -211,17 +167,6 @@ input:focus {
 }
 .button-after {
   margin: 15px 0;
-}
-
-.releases .row {
-  margin-bottom: 15px;
-}
-.releases a {
-  display: block;
-  border: 1px solid #a7a7a7;
-}
-.releases a img {
-  display: block;
 }
 
 .newsletter {
@@ -278,39 +223,11 @@ input:focus {
   background-color: #e2e2e2;
 }
 
-.music-links {
-  display: flex;
-  margin: 30px 0 10px 0;
-}
-.music-links a {
-  flex: 1 1;
-  font-size: 11px;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-}
-.music-links a img {
-  margin: 0 0 5px 0;
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-}
-
-.socials {
-  color: #6f6f6f;
-}
-
 .contact {
   text-align: center;
 }
 .contact p {
   margin: 0.5rem 0;
-}
-
-.instagram-feed {
-  text-align: center;
-  width: 100%;
-  overflow: hidden;
 }
 
 /* footer */
@@ -338,9 +255,6 @@ input:focus {
 /*------------------------------------*\
 	WIDGETS
 \*------------------------------------*/
-.facebook-feed h3 {
-  margin-bottom: 0;
-}
 
 .tribe-events-list-widget h3 {
   margin: 0;

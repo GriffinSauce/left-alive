@@ -1,7 +1,3 @@
-// /*------------------------------------*\
-//     RESPONSIVE
-// \*------------------------------------*/
-
 @media only screen and (min-width: 375px) {
   .button {
     padding: 20px 0 20px 18px;
@@ -10,20 +6,6 @@
   }
 }
 @media only screen and (min-width: 768px) {
-  html {
-    font-size: 17px;
-  }
-
-  .navigation li a {
-    font-size: 0.95rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-  }
-
-  .header {
-    margin: 45px auto;
-  }
-
   .header h1 {
     font-size: 2.4rem;
   }
@@ -45,15 +27,6 @@
 
   .content-container section.white-box {
     padding: 0 30px 30px 30px;
-  }
-
-  .page-title {
-    margin: 0 -30px 15px -30px;
-    font-size: 3rem;
-  }
-
-  .button-attachment {
-    font-size: 1rem;
   }
 
   .newsletter {

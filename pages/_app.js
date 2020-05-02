@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import '../styles/grid12.css';
 import '../styles/style.css';
 import '../styles/responsive.css';
 import '../styles/index.css';

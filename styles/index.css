@@ -22,37 +22,37 @@ h6,
 .h4,
 .h5,
 .h6 {
-  @apply font-display font-bold;
+  @apply font-display font-normal;
 }
 
 h1,
 .h1 {
-  @apply text-xl font-bold;
+  @apply text-xl;
 }
 h2,
 .h2 {
-  @apply text-lg font-semibold;
+  @apply text-lg;
 }
 h3,
 .h3 {
-  @apply text-base font-semibold;
+  @apply text-base;
 }
 h4,
 .h4 {
-  @apply text-sm font-semibold;
+  @apply text-sm;
 }
 h5,
 .h5 {
-  @apply text-sm font-semibold;
+  @apply text-sm;
 }
 h6,
 .h6 {
-  @apply text-xs font-semibold;
+  @apply text-xs;
 }
 
 label,
 .label {
-  @apply font-display font-bold;
+  @apply font-display;
 }
 
 input {
