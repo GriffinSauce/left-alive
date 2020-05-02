@@ -2,91 +2,86 @@
 //     RESPONSIVE
 // \*------------------------------------*/
 
-
 @media only screen and (min-width: 375px) {
-    .button {
-        padding: 20px 0 20px 18px;
-        font-size: 1rem;
-        line-height: 1rem;
-    }
+  .button {
+    padding: 20px 0 20px 18px;
+    font-size: 1rem;
+    line-height: 1rem;
+  }
 }
 @media only screen and (min-width: 768px) {
-    html {
-        font-size: 17px;
-    }
+  html {
+    font-size: 17px;
+  }
 
-    .navigation li a {
-        font-size: 0.95rem;
-        padding-top: .6rem;
-        padding-bottom: .6rem;
-    }
+  .navigation li a {
+    font-size: 0.95rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
 
-    .header {
-        margin: 45px auto;
-    }
+  .header {
+    margin: 45px auto;
+  }
 
-    .header h1 {
-        font-size: 2.4rem;
-    }
+  .header h1 {
+    font-size: 2.4rem;
+  }
 
-    .hero-image {
-        height: 525px;
-    }
+  .hero-image {
+    height: 525px;
+  }
 
-    .content-container {
-        margin-top: -150px;
-    }
+  .content-container {
+    margin-top: -150px;
+  }
 
-    .content-container section {
-        margin-bottom: 45px;
-    }
-    .content-container section.with-columns .column {
-        margin-bottom: 45px;
-    }
+  .content-container section {
+    margin-bottom: 45px;
+  }
+  .content-container section.with-columns .column {
+    margin-bottom: 45px;
+  }
 
-    .content-container section.white-box {
-        padding: 0 30px 30px 30px;
-    }
+  .content-container section.white-box {
+    padding: 0 30px 30px 30px;
+  }
 
-    .page-title {
-        margin: 0 -30px 15px -30px;
-        font-size: 3rem;
-    }
+  .page-title {
+    margin: 0 -30px 15px -30px;
+    font-size: 3rem;
+  }
 
-    .button-attachment {
-        font-size: 1rem;
-    }
+  .button-attachment {
+    font-size: 1rem;
+  }
 
-    .video-responsive + .video-responsive {
-        margin-top: 30px;
-    }
+  .newsletter {
+    padding: 45px 0;
+  }
+  .newsletter h3 {
+    font-size: 4rem;
+  }
 
-    .newsletter {
-        padding: 45px 0;
-    }
-    .newsletter h3 {
-        font-size: 4rem;
-    }
+  .lightwidget--grid.lightwidget--grid-6 li {
+    flex-basis: 16.65%;
+    width: 16.65%;
+  }
 
-    .lightwidget--grid.lightwidget--grid-6 li {
-        flex-basis: 16.65%;
-        width: 16.65%;
-    }
-
-    .tribe-events-list-widget .title {
-        font-size: 1.1rem;
-        padding: 0.6rem;
-    }
-    .tribe-events-list-widget .details {
-        font-size: 0.9rem;
-        padding: 0.6rem;
-    }
+  .tribe-events-list-widget .title {
+    font-size: 1.1rem;
+    padding: 0.6rem;
+  }
+  .tribe-events-list-widget .details {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
 }
 @media only screen and (min-width: 1200px) {
-    .hero-image {
-        height: 750px;
-    }
-    .content-container {
-        margin-top: -250px;
-    }
+  .hero-image {
+    height: 750px;
+  }
+  .content-container {
+    margin-top: -250px;
+  }
 }

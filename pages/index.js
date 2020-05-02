@@ -4,6 +4,7 @@ import MerchBanner from '../components/MerchBanner';
 import FacebookFeed from '../components/FacebookFeed';
 import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
+import Youtube from '../components/Youtube';
 
 export default function Home() {
   return (
@@ -80,37 +81,19 @@ export default function Home() {
                   <Releases />
                 </div>
               </div>
-              <div className="col-sm-6 column">
-                <div className="video-responsive">
-                  <iframe
-                    title="Promise video"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/ypjM2_CkeXs?rel=0&amp;showinfo=0"
-                    frameBorder="0"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-responsive">
-                  <iframe
-                    title="Leave it video"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/jFz6peaugVo?rel=0&amp;showinfo=0"
-                    frameBorder="0"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-responsive">
-                  <iframe
-                    title="Empty Sidewalks video"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/1NOkjNYO58g?rel=0&amp;showinfo=0"
-                    frameBorder="0"
-                    allowFullScreen
-                  />
-                </div>
+              <div className="col-sm-6 column grid gap-3">
+                <Youtube
+                  title="Promise video"
+                  src="https://www.youtube.com/embed/ypjM2_CkeXs?rel=0&amp;showinfo=0"
+                />
+                <Youtube
+                  title="Leave it video"
+                  src="https://www.youtube.com/embed/jFz6peaugVo?rel=0&amp;showinfo=0"
+                />
+                <Youtube
+                  title="Empty Sidewalks video"
+                  src="https://www.youtube.com/embed/1NOkjNYO58g?rel=0&amp;showinfo=0"
+                />
               </div>
             </section>
 
