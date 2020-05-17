@@ -90,18 +90,9 @@ export default function Home() {
             </div>
           </div>
           <div className="grid gap-3">
-            <Youtube
-              title="Promise video"
-              src="https://www.youtube.com/embed/ypjM2_CkeXs?rel=0&amp;showinfo=0"
-            />
-            <Youtube
-              title="Leave it video"
-              src="https://www.youtube.com/embed/jFz6peaugVo?rel=0&amp;showinfo=0"
-            />
-            <Youtube
-              title="Empty Sidewalks video"
-              src="https://www.youtube.com/embed/1NOkjNYO58g?rel=0&amp;showinfo=0"
-            />
+            <Youtube title="Promise video" videoId="ypjM2_CkeXs" />
+            <Youtube title="Leave it video" videoId="jFz6peaugVo" />
+            <Youtube title="Empty Sidewalks video" videoId="1NOkjNYO58g" />
           </div>
         </section>
 
