@@ -22,7 +22,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  @apply font-display font-normal;
+  @apply font-normal font-display;
 }
 
 h1,
@@ -56,7 +56,7 @@ label,
 }
 
 input {
-  @apply block p-2 bg-white text-black w-full;
+  @apply block w-full p-3 text-black bg-white border-none;
 }
 
 .flex-center {
@@ -64,14 +64,10 @@ input {
 }
 
 a {
-  color: #007d8a;
+  @apply text-primary-500;
 }
 a:hover {
-  color: #ff8da1;
-}
-input:focus {
-  outline: 0;
-  border: 1px solid #04a4cc;
+  @apply text-secondary-500;
 }
 
 @tailwind components;

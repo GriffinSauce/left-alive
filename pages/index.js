@@ -1,3 +1,4 @@
+import { FaSpotify, FaFacebookF, FaInstagram } from 'react-icons/fa';
 import Nav from '../components/Nav';
 import Releases from '../components/Releases';
 import MerchBanner from '../components/MerchBanner';
@@ -5,6 +6,7 @@ import FacebookFeed from '../components/FacebookFeed';
 import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
+import Button from '../components/Button';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
@@ -37,7 +39,7 @@ export default function Home() {
 
       <div className={`container grid ${COLUMN_V_GAP} -mt-10 sm:-mt-40`}>
         <section className="">
-          <h2 className="py-2 text-3xl text-center text-white page-title sm:text-5xl">
+          <h2 className="py-2 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
             WE ARE LEFT ALIVE!
           </h2>
 
@@ -51,7 +53,7 @@ export default function Home() {
             </p>
             <p>
               <strong>
-                <a href="https://www.leftalive.nl/about/">Read more…</a>
+                <a href="/about">Read more…</a>
               </strong>
             </p>
             <p>
@@ -77,13 +79,14 @@ export default function Home() {
           <div>
             <Anchor id="music" />
             <a
-              className="button button-spotify"
               href="https://open.spotify.com/artist/128KZvfmYDa6R9uuma8u1A"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/img/icons/icon-spotify-white.png" alt="" />
-              <div>Listen on Spotify</div>
+              <Button color="spotify">
+                <FaSpotify className="mr-4 text-4xl" />
+                Listen on Spotify
+              </Button>
             </a>
             <div className="p-3 bg-white releases">
               <Releases />
@@ -102,13 +105,14 @@ export default function Home() {
           <div>
             <Anchor id="socials" />
             <a
-              className="button button-fb"
               href="https://facebook.com/leftaliveband"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/img/icons/icon-fb-white.png" alt="" />
-              <div>Like us on Facebook</div>
+              <Button color="facebook">
+                <FaFacebookF className="mr-4 text-4xl" />
+                Like us on Facebook
+              </Button>
             </a>
             <div className="p-3 bg-white">
               Like us to get the latest news on shows and other adventures!
@@ -119,13 +123,14 @@ export default function Home() {
           </div>
           <div>
             <a
-              className="button button-insta"
               href="https://www.instagram.com/leftaliveband/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/img/icons/icon-instagram-white.png" alt="" />
-              <div>Follow us on instagram</div>
+              <Button color="instagram">
+                <FaInstagram className="mr-4 text-4xl" />
+                Follow us on instagram
+              </Button>
             </a>
             <div className="mt-1">
               <InstaFeed />
@@ -134,7 +139,7 @@ export default function Home() {
         </section>
 
         <section
-          className="flex flex-col items-center py-12 text-center text-white bg-cover newsletter"
+          className="flex flex-col items-center py-12 text-center text-white bg-cover bg-primary-500 newsletter"
           id="newsletter"
         >
           <div className="grid max-w-xs gap-4">
@@ -175,6 +180,26 @@ export default function Home() {
           </p>
         </footer>
       </div>
+      <style jsx>{`
+        .hero-image {
+          height: 250px;
+        }
+        @media only screen and (min-width: 768px) {
+          .hero-image {
+            height: 525px;
+          }
+        }
+        @media only screen and (min-width: 1200px) {
+          .hero-image {
+            height: 750px;
+          }
+        }
+
+        .newsletter {
+          background-image: url('/img/contact_bg.jpg');
+          background-position: 50% 25%;
+        }
+      `}</style>
     </div>
   );
 }

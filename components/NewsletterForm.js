@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import fetcher from '../utils/fetcher';
+import Button from './Button';
 
 const NewsletterForm = () => {
   const {
@@ -72,13 +73,9 @@ const NewsletterForm = () => {
             />
           </label>
           <p>
-            <button
-              className="block w-full p-3 text-center text-white"
-              type="submit"
-              disabled={isSubmitting}
-            >
+            <Button type="submit" disabled={isSubmitting} center size="sm">
               Sign me up!
-            </button>
+            </Button>
           </p>
           {errors.submit ? (
             <p className="text-sm">
@@ -88,16 +85,6 @@ const NewsletterForm = () => {
           ) : null}
         </div>
       </form>
-      <style jsx>{`
-        button {
-          background-color: #007d8a;
-          transition: color 100ms ease, background-color 100ms ease;
-        }
-        button:hover {
-          color: #007d8a;
-          background-color: #fff;
-        }
-      `}</style>
     </>
   );
 };

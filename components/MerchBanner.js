@@ -1,3 +1,5 @@
+import Button from './Button';
+
 const MerchBanner = () => {
   return (
     <>
@@ -5,15 +7,16 @@ const MerchBanner = () => {
         href="https://www.epicmerchstore.com/collection/artists/left-alive/"
         target="_blank"
         rel="noopener noreferrer"
-        className="merch block p-6 text-center bg-white bg-left-bottom bg-no-repeat"
+        className="block p-6 text-center bg-white bg-left-bottom bg-no-repeat merch"
         id="merch"
       >
-        <h2 className="text-black my-6 text-3xl">MERCH</h2>
-        <p className="text-xl inline-block text-black">
+        <h2 className="my-6 text-3xl text-black">MERCH</h2>
+        <p className="inline-block text-xl text-black">
           Get some at Epic Merch Store!
+          <div className="h-1 mt-2 bg-secondary-500"></div>
         </p>
-        <div className="grid sm:grid-cols-2 gap-2">
-          <div className="hidden sm:block text-right">
+        <div className="grid gap-2 sm:grid-cols-2">
+          <div className="hidden text-right sm:block">
             <img
               className="inline mt-3 mb-6"
               alt="beanies merch"
@@ -30,23 +33,13 @@ const MerchBanner = () => {
             />
           </div>
         </div>
-        <div className="button button-merch inline-block px-24 text-xl font-display py-6 text-white">
+        <button className="inline-block px-24 py-5 text-xl text-white button bg-secondary-500 font-display">
           See more
-        </div>
+        </button>
       </a>
       <style jsx>{`
         .merch {
           background-image: url('/img/merch-bg.svg');
-        }
-        .merch p:after {
-          display: block;
-          content: '';
-          margin-top: 10px;
-          background-color: #ff8da1;
-          height: 3px;
-        }
-        .button-merch {
-          background-color: #ff8da1;
         }
       `}</style>
     </>

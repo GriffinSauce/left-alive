@@ -17,6 +17,25 @@ module.exports = {
         sans: ['Lato', 'sans-serif'],
         display: ['Cubano', 'sans-serif'],
       },
+      colors: {
+        primary: {
+          500: '#007d8a',
+        },
+        secondary: {
+          500: '#ff8da1',
+        },
+        spotify: {
+          300: '#1c9c49',
+          500: '#1db954',
+        },
+        facebook: {
+          300: '#334977',
+          500: '#3b5998',
+        },
+        instagram: {
+          500: '#cb3190;',
+        },
+      },
     },
   },
   variants: {
