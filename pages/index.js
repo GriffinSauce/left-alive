@@ -8,7 +8,7 @@ import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 import Button from '../components/Button';
 import AirtableContent from '../components/AirtableContent';
-import fetcher from '../utils/fetcher';
+import { getContentByKey } from '../utils/airtable';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
@@ -184,21 +184,7 @@ export default function Home({ content }) {
 
 // TODO change to getStaticProps
 export async function getServerSideProps(context) {
-  // TODO: move to airtableFetcher util
-  const apiURL = `https://api.airtable.com/v0/`;
-  const baseId = `appfUKrkbUfTkWvyh`;
-  const tableId = `Website-content`;
-  const rowId = 'home-bio';
-  const query = `?filterByFormula=${encodeURIComponent(`id="${rowId}"`)}`;
-  const url = `${apiURL}${baseId}/${tableId}${query}`;
-  const data = await fetcher(url, {
-    headers: {
-      Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-    },
-  });
-  if (!data.records[0]) throw new Error(`Failed to fetch row by id ${rowId}`);
-  const bio = data.records[0].fields.content;
-
+  const bio = await getContentByKey('home-bio');
   return {
     props: {
       content: {
