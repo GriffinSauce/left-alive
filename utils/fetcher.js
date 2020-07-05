@@ -12,7 +12,8 @@ function fetcher(url, options = {}) {
   })
     .then((response) => (response.status === 204 ? null : response.json()))
     .then((data) => {
-      if (data && data.error) throw new Error(data.error);
+      // FIXME: data.error.message is Airtable-specific, move to util
+      if (data && data.error) throw new Error(data.error.message || data.error);
       return data;
     });
 }

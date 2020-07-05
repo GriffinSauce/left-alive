@@ -7,6 +7,8 @@ import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 import Button from '../components/Button';
+import AirtableContent from '../components/AirtableContent';
+import fetcher from '../utils/fetcher';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
@@ -14,7 +16,7 @@ const COLUMN_V_GAP = 'gap-12';
 // Offset anchor up a bit for more human nav
 const Anchor = ({ id }) => <div id={id} className="absolute -mt-10" />;
 
-export default function Home() {
+export default function Home({ content }) {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -44,31 +46,7 @@ export default function Home() {
           </h2>
 
           <div className="grid gap-3 p-6 text-lg bg-white">
-            <p>
-              Danceable, fast-paced and super energetic: Left Alive play pop
-              punk from the heart. The quintet combine catchy riffs like those
-              of Neck Deep with the powerful vocals of bands like Paramore. They
-              first hit the stage at the end of 2015 and have since blown away
-              many a venue and festival with their live performance.
-            </p>
-            <p>
-              <strong>
-                <a href="/about">Read more…</a>
-              </strong>
-            </p>
-            <p>
-              Want us to play in your town, venue or living room?&nbsp;
-              <strong>
-                <a
-                  href="mailto:mail@leftalive.nl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Let us know
-                </a>
-              </strong>
-              .
-            </p>
+            <AirtableContent content={content.bio} />
             <img src="/img/bandpic.jpg" alt="The band" />
           </div>
 
@@ -202,4 +180,30 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+
+// TODO change to getStaticProps
+export async function getServerSideProps(context) {
+  // TODO: move to airtableFetcher util
+  const apiURL = `https://api.airtable.com/v0/`;
+  const baseId = `appfUKrkbUfTkWvyh`;
+  const tableId = `Website-content`;
+  const rowId = 'home-bio';
+  const query = `?filterByFormula=${encodeURIComponent(`id="${rowId}"`)}`;
+  const url = `${apiURL}${baseId}/${tableId}${query}`;
+  const data = await fetcher(url, {
+    headers: {
+      Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+    },
+  });
+  if (!data.records[0]) throw new Error(`Failed to fetch row by id ${rowId}`);
+  const bio = data.records[0].fields.content;
+
+  return {
+    props: {
+      content: {
+        bio,
+      },
+    },
+  };
 }
