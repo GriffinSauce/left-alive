@@ -28,8 +28,7 @@ const About = ({ content }) => {
   );
 };
 
-// TODO change to getStaticProps
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const [header, quote, nl, en] = await Promise.all([
     getContentByKey('about-header'),
     getContentByKey('about-quote'),
