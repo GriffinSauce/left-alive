@@ -13,7 +13,7 @@ const MerchBanner = () => {
         <h2 className="my-6 text-3xl text-black">MERCH</h2>
         <p className="inline-block text-xl text-black">
           Get some at Epic Merch Store!
-          <div className="h-1 mt-2 bg-secondary-500"></div>
+          <span className="block h-1 mt-2 bg-secondary-500"></span>
         </p>
         <div className="grid gap-2 sm:grid-cols-2">
           <div className="hidden text-right sm:block">

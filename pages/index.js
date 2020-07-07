@@ -7,6 +7,9 @@ import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 import Button from '../components/Button';
+import AirtableContent from '../components/AirtableContent';
+import Hero from '../components/Hero';
+import { getContentByKey } from '../utils/airtable';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
@@ -14,61 +17,20 @@ const COLUMN_V_GAP = 'gap-12';
 // Offset anchor up a bit for more human nav
 const Anchor = ({ id }) => <div id={id} className="absolute -mt-10" />;
 
-export default function Home() {
+const Home = ({ content }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
-
-      <div className="bg-white">
-        <header role="banner" className="container flex justify-center">
-          <a href="/" className="block w-full py-12">
-            <img
-              alt="Left Alive - pop punk from the heart"
-              id="headerimg"
-              src="/img/logo.svg"
-            />
-          </a>
-        </header>
-      </div>
-
-      <img
-        className="object-cover w-full hero-image bg-grey-900"
-        src="/img/hero.jpg"
-        alt="The band on stage"
-      />
+      <Hero />
 
       <div className={`container grid ${COLUMN_V_GAP} -mt-10 sm:-mt-40`}>
         <section className="">
-          <h2 className="py-2 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
-            WE ARE LEFT ALIVE!
+          <h2 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
+            <AirtableContent content={content.header} />
           </h2>
 
           <div className="grid gap-3 p-6 text-lg bg-white">
-            <p>
-              Danceable, fast-paced and super energetic: Left Alive play pop
-              punk from the heart. The quintet combine catchy riffs like those
-              of Neck Deep with the powerful vocals of bands like Paramore. They
-              first hit the stage at the end of 2015 and have since blown away
-              many a venue and festival with their live performance.
-            </p>
-            <p>
-              <strong>
-                <a href="/about">Read more…</a>
-              </strong>
-            </p>
-            <p>
-              Want us to play in your town, venue or living room?&nbsp;
-              <strong>
-                <a
-                  href="mailto:mail@leftalive.nl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Let us know
-                </a>
-              </strong>
-              .
-            </p>
+            <AirtableContent content={content.bio} />
             <img src="/img/bandpic.jpg" alt="The band" />
           </div>
 
@@ -139,14 +101,15 @@ export default function Home() {
         </section>
 
         <section
-          className="flex flex-col items-center py-12 text-center text-white bg-cover bg-primary-500 newsletter"
+          className="flex flex-col items-center py-12 text-center bg-cover bg-primary-500 newsletter"
           id="newsletter"
         >
           <div className="grid max-w-xs gap-4">
-            <h3 className="text-4xl sm:text-5xl">NO SOCIALS?</h3>
-            <p className="text-lg">
-              No problem! Sign up for the newsletter to get updates straight
-              from us!
+            <h3 className="text-4xl text-white sm:text-5xl">
+              <AirtableContent content={content.newsletterHeader} />
+            </h3>
+            <p className="text-lg text-white">
+              <AirtableContent content={content.newsletterBody} />
             </p>
             <NewsletterForm />
           </div>
@@ -202,4 +165,25 @@ export default function Home() {
       `}</style>
     </div>
   );
+};
+
+export async function getStaticProps(context) {
+  const [header, bio, newsletterHeader, newsletterBody] = await Promise.all([
+    getContentByKey('home-header'),
+    getContentByKey('home-bio'),
+    getContentByKey('home-newsletter-header'),
+    getContentByKey('home-newsletter-body'),
+  ]);
+  return {
+    props: {
+      content: {
+        header,
+        bio,
+        newsletterHeader,
+        newsletterBody,
+      },
+    },
+  };
 }
+
+export default Home;
