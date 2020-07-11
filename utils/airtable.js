@@ -30,9 +30,10 @@ const recordToObject = (record) => ({
 const getAllRecordsForTable = async (tableId) => {
   let allRecords = [];
   await base(tableId)
-    .select({})
+    .select({
+      sort: [{ field: 'Date', direction: 'desc' }],
+    })
     .eachPage(function page(records, fetchNextPage) {
-      console.log(Object.keys(records[0]._rawJson.fields));
       allRecords = [...allRecords, ...records.map(recordToObject)];
       fetchNextPage(); // Will call done when there are no more
     });
