@@ -6,10 +6,10 @@ const Nav = () => {
           <nav className="">
             <ul className="navigation">
               <li>
-                <a href="#music">Music</a>
+                <a href="/#music">Music</a>
               </li>
               <li>
-                <a href="#socials">Social</a>
+                <a href="/#socials">Social</a>
               </li>
               <li>
                 <a href="/events">Shows</a>
