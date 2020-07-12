@@ -27,17 +27,50 @@ const recordToObject = (record) => ({
   ...camelCaseKeys(record._rawJson.fields),
 });
 
+// TODO: should this do recordToObject?
+const getRecordById = async ({ tableId, recordId }) =>
+  base(tableId)
+    .find(recordId)
+    .then((record) => recordToObject(record));
+
+// TODO: support multivalue fields
+// TODO: document `populates` param
+const populate = async (record, populates) => {
+  const results = await Promise.all(
+    populates.map(async ({ path, from }) => ({
+      path,
+      from,
+      result: await getRecordById({
+        tableId: from,
+        recordId: record[path],
+      }),
+    })),
+  );
+  return results.reduce((newRecord, { path, from, result }) => {
+    newRecord[path] = result;
+    return newRecord;
+  }, record);
+};
+
+// TODO: make populates more generic
+// TODO: better factoring for this whole thing
 const getAllRecordsForTable = async (tableId) => {
   let allRecords = [];
   await base(tableId)
     .select({
       sort: [{ field: 'Date', direction: 'desc' }],
     })
-    .eachPage(function page(records, fetchNextPage) {
-      allRecords = [...allRecords, ...records.map(recordToObject)];
+    .eachPage((records, fetchNextPage) => {
+      allRecords = [
+        ...allRecords,
+        ...records.map((record) =>
+          populate(recordToObject(record), [{ path: 'venue', from: 'Venues' }]),
+        ),
+      ];
+
       fetchNextPage(); // Will call done when there are no more
     });
-  return allRecords;
+  return await Promise.all(allRecords);
 };
 
 export const getEvents = () => getAllRecordsForTable('Shows');

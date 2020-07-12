@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import useSWR from 'swr';
 import fetcher from '../utils/fetcher';
+import { FiMap } from 'react-icons/fi';
 
 const EventsList = () => {
   const { data, error } = useSWR(`/api/events`, fetcher);
@@ -13,11 +14,32 @@ const EventsList = () => {
       {data.events.map((event) => (
         <li
           key={event.id}
-          className="w-full p-3 break-words bg-white border-b border-grey-100"
+          className="grid w-full gap-3 py-12 break-words bg-white border-b border-grey-100"
         >
-          <h3 className="flex items-center font-sans text-base font-semibold">
-            {event.title}
-          </h3>
+          <h1 className="flex items-center">{event.title}</h1>
+          <section>
+            <div>{event.date}</div>
+            <div>{event.price}</div>
+          </section>
+
+          <a
+            className="grid gap-2 p-3 bg-gray-100 border"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://www.google.com/maps/place/${event.venue.address},${event.venue.city}`}
+          >
+            <h2 className="font-sans text-base font-bold ">
+              {event.venue.name}
+            </h2>
+
+            <span className="flex items-center">
+              <FiMap className="mr-2" />
+              <span>
+                {event.venue.address}, {event.venue.city}
+              </span>
+            </span>
+          </a>
+
           <div className="grid gap-2">
             <div
               className="text-sm"
