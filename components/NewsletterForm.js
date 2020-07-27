@@ -66,7 +66,7 @@ const NewsletterForm = () => {
             <input
               type="text"
               name="hp"
-              value=""
+              defaultValue=""
               tabIndex="-1"
               autoComplete="off"
               ref={register()}
