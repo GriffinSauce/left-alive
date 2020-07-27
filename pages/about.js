@@ -9,7 +9,7 @@ const About = ({ content }) => {
       <Nav />
       <Hero />
 
-      <article className={`container grid -mt-10 sm:-mt-40`}>
+      <article className="container grid -mt-10 sm:-mt-40">
         <h1 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
           <AirtableContent content={content.header} />
         </h1>
@@ -28,7 +28,7 @@ const About = ({ content }) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const [header, quote, nl, en] = await Promise.all([
     getContentByKey('about-header'),
     getContentByKey('about-quote'),

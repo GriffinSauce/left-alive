@@ -48,6 +48,7 @@
     "react/display-name": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
+    "react/button-has-type": "off", // Rule disallows dynamic assignment
     /**
      * NextJS <Link> API conflicts with a11y expectations
      * https://github.com/zeit/next.js/issues/5533

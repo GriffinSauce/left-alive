@@ -1,5 +1,3 @@
-import Button from './Button';
-
 const MerchBanner = () => {
   return (
     <>
@@ -13,7 +11,7 @@ const MerchBanner = () => {
         <h2 className="my-6 text-3xl text-black">MERCH</h2>
         <p className="inline-block text-xl text-black">
           Get some at Epic Merch Store!
-          <span className="block h-1 mt-2 bg-secondary-500"></span>
+          <span className="block h-1 mt-2 bg-secondary-500" />
         </p>
         <div className="grid gap-2 sm:grid-cols-2">
           <div className="hidden text-right sm:block">
@@ -33,7 +31,10 @@ const MerchBanner = () => {
             />
           </div>
         </div>
-        <button className="inline-block px-24 py-5 text-xl text-white button bg-secondary-500 font-display">
+        <button
+          type="button"
+          className="inline-block px-24 py-5 text-xl text-white button bg-secondary-500 font-display"
+        >
           See more
         </button>
       </a>
