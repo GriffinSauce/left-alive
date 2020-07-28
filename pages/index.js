@@ -167,7 +167,7 @@ const Home = ({ content }) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const [header, bio, newsletterHeader, newsletterBody] = await Promise.all([
     getContentByKey('home-header'),
     getContentByKey('home-bio'),
