@@ -1,75 +1,82 @@
 import Airtable from 'airtable';
-import camelCase from 'lodash.camelcase';
-import { showsSchema } from './schemas';
+import schemas from './schemas';
+import { getTableName } from './utils';
 
 const base = Airtable.base('appfUKrkbUfTkWvyh');
 
-export const getContentByKey = async (key) => {
-  const tableId = `Website-content`;
+export { recordToObject } from './utils';
+
+export const getRecordById = async ({ tableId, recordId, fields }) => {
   const records = await base(tableId)
     .select({
-      filterByFormula: `key="${key}"`,
+      filterByFormula: `RECORD_ID()="${recordId}"`,
+      ...(fields ? { fields } : {}),
     })
     .firstPage();
-  return records[0]?.get('content') || '';
+  return records[0];
 };
 
-const camelCaseKeys = (obj) =>
-  Object.keys(obj).reduce(
-    (modified, key) => ({
-      ...modified,
-      [camelCase(key)]: obj[key],
-    }),
-    {},
-  );
+export const getRecordByKeyField = async ({
+  tableId,
+  key,
+  keyField,
+  fields,
+}) => {
+  const records = await base(tableId)
+    .select({
+      filterByFormula: `${keyField}="${key}"`,
+      ...(fields ? { fields } : {}),
+    })
+    .firstPage();
+  return records[0];
+};
 
-const recordToObject = (record) => ({
-  created: record._rawJson.createdTime,
-  ...camelCaseKeys(record._rawJson.fields),
-});
-
-// TODO: should this do recordToObject?
-const getRecordById = async ({ tableId, recordId }) =>
+export const getAllRecordsForTable = async (tableId, { sort }) =>
   base(tableId)
-    .find(recordId)
-    .then((record) => recordToObject(record));
+    .select({
+      sort,
+    })
+    .all();
 
-// TODO: support multivalue fields
-// TODO: document `populates` param
-const populate = async (record, populates) => {
-  const results = await Promise.all(
-    populates.map(async ({ path, from }) => ({
+export const populate = async (record) => {
+  // TODO: document `populateFields` prop
+  const populateFields = schemas[getTableName(record)]?.populateFields;
+  if (!populateFields) return record;
+
+  const populateField = async ({ path, from, multi, fields }) => {
+    const ref = record.get(path);
+    const output = {
       path,
       from,
-      result: await getRecordById({
-        tableId: from,
-        recordId: record[path],
-      }),
-    })),
-  );
-  return results.reduce((newRecord, { path, from, result }) => {
-    newRecord[path] = result;
-    return newRecord;
-  }, record);
+      result: ref,
+    };
+    if (!ref) return output;
+    try {
+      if (multi) {
+        output.result = await Promise.all(
+          ref.map((recordId) =>
+            getRecordById({
+              tableId: from,
+              recordId,
+              fields,
+            }),
+          ),
+        );
+      } else {
+        output.result = await getRecordById({
+          tableId: from,
+          recordId: ref,
+        });
+      }
+    } catch (err) {
+      console.error(
+        `Failed to populate ${path} of ${record.id}\n  ${err.message}`,
+      );
+    }
+    record.fields[path] = output.result; // eslint-disable-line no-param-reassign
+  };
+
+  // TODO: Error handling?
+  await Promise.all(populateFields.map(populateField));
+  return record;
 };
-
-// TODO: make populates more generic
-// TODO: better factoring for this whole thing
-const getAllRecordsForTable = async (tableId) => {
-  let allRecords = [];
-  await base(tableId)
-    .select({
-      sort: [{ field: 'Date', direction: 'desc' }],
-    })
-    .eachPage((records, fetchNextPage) => {
-      allRecords = [
-        ...allRecords,
-        ...records.map((record) => populate(record, showsSchema.linkedFields)),
-      ];
-
-      fetchNextPage(); // Will call done when there are no more
-    });
-  return Promise.all(allRecords);
-};
-
-export const getEvents = () => getAllRecordsForTable('Shows');

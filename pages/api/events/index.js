@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getEvents } from '../../../utils/airtable';
+import { getEvents } from '../../../services/db';
 
 export default async (req, res) => {
   try {

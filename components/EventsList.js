@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import useSWR from 'swr';
-import fetcher from '../utils/fetcher';
 import { FiMap } from 'react-icons/fi';
+import fetcher from '../utils/fetcher';
 
 const EventsList = () => {
   const { data, error } = useSWR(`/api/events`, fetcher);

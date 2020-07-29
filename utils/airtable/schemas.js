@@ -1,7 +1,8 @@
-// eslint-disable-next-line import/prefer-default-export
-export const showsSchema = {
-  linkedFields: [
-    { path: 'Venue', from: 'Venues' },
-    { path: 'With', from: 'Bands' },
-  ],
+export default {
+  Shows: {
+    populateFields: [
+      { path: 'Venue', from: 'Venues', multi: false },
+      { path: 'With', from: 'Bands', multi: true, fields: ['Name'] },
+    ],
+  },
 };

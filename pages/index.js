@@ -9,7 +9,7 @@ import Youtube from '../components/Youtube';
 import Button from '../components/Button';
 import AirtableContent from '../components/AirtableContent';
 import Hero from '../components/Hero';
-import { getContentByKey } from '../utils/airtable';
+import { getContentByKey } from '../services/db';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';

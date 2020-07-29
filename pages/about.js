@@ -1,7 +1,7 @@
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import AirtableContent from '../components/AirtableContent';
-import { getContentByKey } from '../utils/airtable';
+import { getContentByKey } from '../services/db';
 
 const About = ({ content }) => {
   return (
