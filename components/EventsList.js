@@ -1,17 +1,10 @@
 /* eslint-disable react/no-danger */
-import useSWR from 'swr';
 import { FiMap } from 'react-icons/fi';
-import fetcher from '../utils/fetcher';
 
-const EventsList = () => {
-  const { data, error } = useSWR(`/api/events`, fetcher);
-
-  if (error) return '';
-  if (!data) return 'Loading...';
-
+const EventsList = ({ events }) => {
   return (
     <ul>
-      {data.events.map((event) => (
+      {events.map((event) => (
         <li
           key={event.id}
           className="grid w-full gap-3 py-12 break-words bg-white border-b border-grey-100"

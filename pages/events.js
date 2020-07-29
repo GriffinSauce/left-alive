@@ -1,8 +1,9 @@
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import EventsList from '../components/EventsList';
+import { getEvents } from '../services/db';
 
-const About = () => {
+const Events = ({ events }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -14,17 +15,19 @@ const About = () => {
         </h1>
 
         <div className="grid gap-3 p-6 text-lg bg-white">
-          <EventsList />
+          <EventsList events={events} />
         </div>
       </article>
     </div>
   );
 };
 
-// export async function getStaticProps(context) {
-//   return {
-//     props: {},
-//   };
-// }
+export async function getStaticProps(context) {
+  return {
+    props: {
+      events: await getEvents(),
+    },
+  };
+}
 
-export default About;
+export default Events;

@@ -10,7 +10,7 @@ export const getContentByKey = async (key) => {
   const record = await getRecordByKeyField({
     tableId,
     key,
-    field: 'key',
+    keyField: 'key',
   });
   return record?.get('content') || '';
 };
