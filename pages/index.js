@@ -144,20 +144,6 @@ const Home = ({ content }) => {
         </footer>
       </div>
       <style jsx>{`
-        .hero-image {
-          height: 250px;
-        }
-        @media only screen and (min-width: 768px) {
-          .hero-image {
-            height: 525px;
-          }
-        }
-        @media only screen and (min-width: 1200px) {
-          .hero-image {
-            height: 750px;
-          }
-        }
-
         .newsletter {
           background-image: url('/img/contact_bg.jpg');
           background-position: 50% 25%;

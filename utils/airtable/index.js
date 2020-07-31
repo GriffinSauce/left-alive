@@ -2,7 +2,8 @@ import Airtable from 'airtable';
 import schemas from './schemas';
 import { getTableName } from './utils';
 
-const base = Airtable.base('appfUKrkbUfTkWvyh');
+const isAirtableEnabled = !!process.env.AIRTABLE_API_KEY;
+const base = isAirtableEnabled ? Airtable.base('appfUKrkbUfTkWvyh') : null;
 
 export { recordToObject } from './utils';
 

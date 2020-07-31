@@ -7,9 +7,9 @@ const Events = ({ events }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
-      <Hero />
+      <Hero compact />
 
-      <article className={`container grid -mt-10 sm:-mt-40`}>
+      <article className={`container grid -mt-10 sm:-mt-48`}>
         <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
           Events
         </h1>
