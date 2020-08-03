@@ -1,9 +1,9 @@
-import useDimensions from 'react-use-dimensions';
 import { useState, useEffect } from 'react';
 import { FiMap, FiChevronDown } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { parseISO, format, isSameYear } from 'date-fns';
 import AirtableContent, { isEmptyContent } from './AirtableContent';
+import useDimensions from '../hooks/useDimensions';
 
 const Event = ({ event }) => {
   const maxHeight = 350;
@@ -50,7 +50,7 @@ const Event = ({ event }) => {
             </section>
           ) : null}
           <a
-            className="block p-4 bg-gray-100 border-b sm:border-l"
+            className="block p-4 bg-gray-100 border-b sm:border-l sm:border-b-0"
             target="_blank"
             rel="noopener noreferrer"
             href={`https://www.google.com/maps/place/${event.venue.address},${event.venue.city}`}
