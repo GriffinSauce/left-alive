@@ -1,47 +1,60 @@
-/* eslint-disable react/no-danger */
 import { FiMap } from 'react-icons/fi';
+import { RiMoneyEuroCircleLine } from 'react-icons/ri';
+import { parseISO, format } from 'date-fns';
+import AirtableContent, { isEmptyContent } from './AirtableContent';
+
+const Event = ({ event }) => {
+  return (
+    <li className="grid w-full gap-3 break-words bg-white">
+      <h1 className="flex flex-col sm:block">
+        <span className="text-secondary-600">
+          {format(parseISO(event.date), 'MMMM do')}
+        </span>
+        <span className="hidden mx-2 sm:visible">/</span>
+        <span>{event.title}</span>
+      </h1>
+
+      <div className="flex flex-col-reverse grid-flow-col grid-cols-2 sm:grid">
+        {!isEmptyContent(event.publicDescription) ? (
+          <section className="p-4 text-base bg-gray-100">
+            <AirtableContent
+              className="grid gap-3 break-words"
+              content={event.publicDescription}
+            />
+          </section>
+        ) : null}
+        <a
+          className="block p-4 bg-gray-100 border-b sm:border-l"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://www.google.com/maps/place/${event.venue.address},${event.venue.city}`}
+        >
+          <div className="mb-3 font-sans text-base font-bold">
+            {event.venue.name}
+          </div>
+
+          <div className="flex items-center mb-3">
+            <FiMap className="mr-2" />
+            <span>
+              {event.venue.address}, {event.venue.city}
+            </span>
+          </div>
+
+          <div className="flex items-center mb-3">
+            <RiMoneyEuroCircleLine className="mr-2" />
+            <span>{event.price}</span>
+          </div>
+        </a>
+      </div>
+    </li>
+  );
+};
 
 const EventsList = ({ events }) => {
   return (
-    <ul>
+    <ul className="grid gap-10 sm:gap-20">
       {events.map((event) => (
-        <li
-          key={event.id}
-          className="grid w-full gap-3 py-12 break-words bg-white border-b border-grey-100"
-        >
-          <h1 className="flex items-center">{event.title}</h1>
-          <section>
-            <div>{event.date}</div>
-            <div>{event.price}</div>
-          </section>
-
-          <a
-            className="grid gap-2 p-3 bg-gray-100 border"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://www.google.com/maps/place/${event.venue.address},${event.venue.city}`}
-          >
-            <h2 className="font-sans text-base font-bold ">
-              {event.venue.name}
-            </h2>
-
-            <span className="flex items-center">
-              <FiMap className="mr-2" />
-              <span>
-                {event.venue.address}, {event.venue.city}
-              </span>
-            </span>
-          </a>
-
-          <div className="grid gap-2">
-            <div
-              className="text-sm"
-              dangerouslySetInnerHTML={{
-                __html: event.publicDescription,
-              }}
-            />
-          </div>
-        </li>
+        <Event key={event.id} event={event} />
       ))}
     </ul>
   );
