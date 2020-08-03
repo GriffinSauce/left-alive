@@ -2,7 +2,7 @@ import useDimensions from 'react-use-dimensions';
 import { useState, useEffect } from 'react';
 import { FiMap, FiChevronDown } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
-import { parseISO, format } from 'date-fns';
+import { parseISO, format, isSameYear } from 'date-fns';
 import AirtableContent, { isEmptyContent } from './AirtableContent';
 
 const Event = ({ event }) => {
@@ -13,12 +13,15 @@ const Event = ({ event }) => {
     setIsCollapsed(height > maxHeight);
   }, [height]);
 
+  const date = parseISO(event.date);
+  const isThisYear = isSameYear(date, new Date());
+
   return (
     <>
       <li className="grid w-full gap-3 break-words bg-white">
         <h1 className="flex flex-col sm:block">
           <span className="text-secondary-600">
-            {format(parseISO(event.date), 'MMMM do')}
+            {format(date, `MMMM do${isThisYear ? '' : ' yyyy'}`)}
           </span>
           <span className="hidden mx-2 sm:inline">/</span>
           <span>{event.title}</span>
