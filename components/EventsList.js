@@ -37,7 +37,7 @@ const Event = ({ event }) => {
               {isCollapsed ? (
                 <button
                   type="button"
-                  className="flex flex-col items-center justify-center w-full p-3 pb-0 mt-3 border-t border-gray-300"
+                  className="flex flex-col items-center justify-center w-full p-3 pb-0 border-t border-gray-300"
                   onClick={() => setIsCollapsed(false)}
                 >
                   <span>read more</span>
@@ -70,8 +70,24 @@ const Event = ({ event }) => {
       </li>
       <style jsx>{`
         .description-truncate {
+          position: relative;
           overflow-y: hidden;
           max-height: ${maxHeight}px;
+        }
+
+        .description-truncate:after {
+          position: absolute;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 50px;
+          background: linear-gradient(
+            0deg,
+            rgba(247, 250, 252, 1) 0%,
+            rgba(247, 250, 252, 0) 100%
+          );
+          bottom: 0;
+          left: 0;
         }
       `}</style>
     </>
