@@ -10,7 +10,7 @@ const Event = ({ event }) => {
         <span className="text-secondary-600">
           {format(parseISO(event.date), 'MMMM do')}
         </span>
-        <span className="hidden mx-2 sm:visible">/</span>
+        <span className="hidden mx-2 sm:inline">/</span>
         <span>{event.title}</span>
       </h1>
 
