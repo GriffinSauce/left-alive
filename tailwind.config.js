@@ -23,6 +23,7 @@ module.exports = {
         },
         secondary: {
           500: '#ff8da1',
+          600: '#d87b8b;',
         },
         spotify: {
           300: '#1c9c49',

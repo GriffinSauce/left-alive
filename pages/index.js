@@ -9,7 +9,7 @@ import Youtube from '../components/Youtube';
 import Button from '../components/Button';
 import AirtableContent from '../components/AirtableContent';
 import Hero from '../components/Hero';
-import { getContentByKey } from '../utils/airtable';
+import { getContentByKey } from '../services/db';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
@@ -144,20 +144,6 @@ const Home = ({ content }) => {
         </footer>
       </div>
       <style jsx>{`
-        .hero-image {
-          height: 250px;
-        }
-        @media only screen and (min-width: 768px) {
-          .hero-image {
-            height: 525px;
-          }
-        }
-        @media only screen and (min-width: 1200px) {
-          .hero-image {
-            height: 750px;
-          }
-        }
-
         .newsletter {
           background-image: url('/img/contact_bg.jpg');
           background-position: 50% 25%;
