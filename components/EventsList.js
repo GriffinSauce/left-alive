@@ -1,6 +1,6 @@
 import useDimensions from 'react-use-dimensions';
 import { useState, useEffect } from 'react';
-import { FiMap } from 'react-icons/fi';
+import { FiMap, FiChevronDown } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { parseISO, format } from 'date-fns';
 import AirtableContent, { isEmptyContent } from './AirtableContent';
@@ -37,10 +37,11 @@ const Event = ({ event }) => {
               {isCollapsed ? (
                 <button
                   type="button"
-                  className="block w-full p-3 mt-3 border-t border-gray-300"
+                  className="flex flex-col items-center justify-center w-full p-3 pb-0 mt-3 border-t border-gray-300"
                   onClick={() => setIsCollapsed(false)}
                 >
-                  read more
+                  <span>read more</span>
+                  <FiChevronDown />
                 </button>
               ) : null}
             </section>
