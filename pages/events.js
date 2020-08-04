@@ -10,7 +10,7 @@ const Events = ({ events }) => {
       <Nav />
       <Hero compact />
 
-      <article className={`container grid -mt-10 sm:-mt-48`}>
+      <article className="container grid -mt-10 sm:-mt-48">
         <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
           Events
         </h1>
@@ -25,7 +25,7 @@ const Events = ({ events }) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   return {
     props: {
       events: await getEvents(),
