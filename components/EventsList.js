@@ -11,6 +11,8 @@ const renderAddress = (address, city) =>
 const mapsEncode = (string) => string?.replace(/\s/gm, '+');
 
 const Event = ({ event }) => {
+  if (!event.title || !event.date) return null; // Not an event then is it?!
+
   const maxHeight = 350;
   const [descriptionRef, { height }] = useDimensions();
   const [isCollapsed, setIsCollapsed] = useState(height > maxHeight);
