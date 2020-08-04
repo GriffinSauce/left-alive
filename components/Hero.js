@@ -1,17 +1,18 @@
+import Link from 'next/link';
+
 const Hero = ({ compact = false }) => (
   <>
     <div className="bg-white">
       <header role="banner" className="container flex justify-center">
-        <a
-          href="/"
-          className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}
-        >
-          <img
-            alt="Left Alive - pop punk from the heart"
-            id="headerimg"
-            src="/img/logo.svg"
-          />
-        </a>
+        <Link href="/">
+          <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}>
+            <img
+              alt="Left Alive - pop punk from the heart"
+              id="headerimg"
+              src="/img/logo.svg"
+            />
+          </a>
+        </Link>
       </header>
     </div>
     <div
