@@ -48,6 +48,7 @@ module.exports = {
       'odd',
       'hover',
       'focus',
+      'group-hover',
     ],
     borderRadius: ['responsive', 'first', 'last'],
   },

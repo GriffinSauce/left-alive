@@ -32,10 +32,14 @@ export const getRecordByKeyField = async ({
   return records[0];
 };
 
-export const getAllRecordsForTable = async (tableId, { sort }) =>
+export const getAllRecordsForTable = async (
+  tableId,
+  { sort, filter: filterByFormula },
+) =>
   base(tableId)
     .select({
       sort,
+      ...(filterByFormula ? { filterByFormula } : {}),
     })
     .all();
 

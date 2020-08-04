@@ -8,16 +8,16 @@ import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 import Button from '../components/Button';
 import AirtableContent from '../components/AirtableContent';
+import EventsWidget from '../components/EventsWidget';
 import Hero from '../components/Hero';
-import { getContentByKey } from '../services/db';
+import Anchor from '../components/Anchor';
+import Footer from '../components/Footer';
+import { getContentByKey, getUpcomingEvents } from '../services/db';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
 
-// Offset anchor up a bit for more human nav
-const Anchor = ({ id }) => <div id={id} className="absolute -mt-10" />;
-
-const Home = ({ content }) => {
+const Home = ({ content, futureEvents }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -32,9 +32,8 @@ const Home = ({ content }) => {
           <div className="grid gap-3 p-6 text-lg bg-white">
             <AirtableContent content={content.bio} />
             <img src="/img/bandpic.jpg" alt="The band" />
+            <EventsWidget events={futureEvents} />
           </div>
-
-          <div>[widget area 1]</div>
         </section>
 
         <section className={`grid ${COLUMN_V_GAP} sm:grid-cols-2 sm:gap-6`}>
@@ -127,22 +126,7 @@ const Home = ({ content }) => {
           </p>
         </div>
       </div>
-      <div>
-        <footer
-          className="py-12 text-xs italic text-center text-gray-600"
-          role="contentinfo"
-        >
-          <p className="copyright">
-            &copy; 2020 Copyright Left Alive.
-            <br />
-            Built by{' '}
-            <a href="https://github.com/GriffinSauce/" title="GriffinSauce">
-              GriffinSauce
-            </a>
-            .
-          </p>
-        </footer>
-      </div>
+      <Footer />
       <style jsx>{`
         .newsletter {
           background-image: url('/img/contact_bg.jpg');
@@ -154,11 +138,18 @@ const Home = ({ content }) => {
 };
 
 export async function getStaticProps() {
-  const [header, bio, newsletterHeader, newsletterBody] = await Promise.all([
+  const [
+    header,
+    bio,
+    newsletterHeader,
+    newsletterBody,
+    futureEvents,
+  ] = await Promise.all([
     getContentByKey('home-header'),
     getContentByKey('home-bio'),
     getContentByKey('home-newsletter-header'),
     getContentByKey('home-newsletter-body'),
+    getUpcomingEvents(),
   ]);
   return {
     props: {
@@ -168,6 +159,7 @@ export async function getStaticProps() {
         newsletterHeader,
         newsletterBody,
       },
+      futureEvents,
     },
   };
 }

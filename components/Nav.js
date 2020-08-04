@@ -6,6 +6,9 @@ const Nav = () => {
           <nav className="">
             <ul className="navigation">
               <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
                 <a href="/#music">Music</a>
               </li>
               <li>

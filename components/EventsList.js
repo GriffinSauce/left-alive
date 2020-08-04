@@ -4,6 +4,7 @@ import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { parseISO, format } from 'date-fns';
 import AirtableContent from './AirtableContent';
 import EventStructuredData from './EventStructuredData';
+import Anchor from './Anchor';
 import useDimensions from '../hooks/useDimensions';
 
 const renderAddress = (address, city) =>
@@ -26,6 +27,7 @@ const Event = ({ event }) => {
   return (
     <>
       <li className="grid w-full gap-3 break-words bg-white">
+        <Anchor id={event.id} />
         <EventStructuredData event={event} />
         <h1 className="flex flex-col sm:block">
           <span className="text-secondary-600">

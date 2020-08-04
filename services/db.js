@@ -22,3 +22,12 @@ export const getEvents = async () => {
   const populated = await Promise.all(records.map(populate));
   return populated.map(recordToObject);
 };
+
+export const getUpcomingEvents = async () => {
+  const records = await getAllRecordsForTable('Shows', {
+    sort: [{ field: 'Date', direction: 'desc' }],
+    filter: 'IS_AFTER({Date}, NOW())',
+  });
+  const populated = await Promise.all(records.map(populate));
+  return populated.map(recordToObject);
+};

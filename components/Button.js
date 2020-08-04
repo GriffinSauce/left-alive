@@ -22,9 +22,9 @@ const Button = ({
     <button
       type={type}
       disabled={disabled}
-      className={`flex items-center w-full ${center ? 'justify-center' : ''} ${
-        sizes[size]
-      } ${colors[color]}`}
+      className={`flex items-center w-full transition-colors duration-75 ${
+        center ? 'justify-center' : ''
+      } ${sizes[size]} ${colors[color]}`}
     >
       {children}
     </button>

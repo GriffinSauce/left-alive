@@ -1,6 +1,7 @@
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import EventsList from '../components/EventsList';
+import Footer from '../components/Footer';
 import { getEvents } from '../services/db';
 
 const Events = ({ events }) => {
@@ -18,6 +19,8 @@ const Events = ({ events }) => {
           <EventsList events={events} />
         </div>
       </article>
+
+      <Footer />
     </div>
   );
 };
