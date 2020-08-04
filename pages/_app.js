@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import '../styles/style.css';
 import '../styles/index.css';
 
 const App = ({ Component, pageProps }) => {
