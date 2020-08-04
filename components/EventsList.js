@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import { FiMap, FiChevronDown } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
-import { parseISO, format, isSameYear } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import AirtableContent, { isEmptyContent } from './AirtableContent';
 import useDimensions from '../hooks/useDimensions';
+
+const renderAddress = (address, city) =>
+  [address, city].filter(Boolean).join(', ');
+
+const mapsEncode = (string) => string?.replace(/\s/gm, '+');
 
 const Event = ({ event }) => {
   const maxHeight = 350;
@@ -14,14 +19,13 @@ const Event = ({ event }) => {
   }, [height]);
 
   const date = parseISO(event.date);
-  const isThisYear = isSameYear(date, new Date());
 
   return (
     <>
       <li className="grid w-full gap-3 break-words bg-white">
         <h1 className="flex flex-col sm:block">
           <span className="text-secondary-600">
-            {format(date, `MMMM do${isThisYear ? '' : ' yyyy'}`)}
+            {format(date, `MMMM do yyyy`)}
           </span>
           <span className="hidden mx-2 sm:inline">/</span>
           <span>{event.title}</span>
@@ -53,14 +57,16 @@ const Event = ({ event }) => {
             className="block p-4 bg-gray-100 border-b sm:border-l sm:border-b-0"
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://www.google.com/maps/place/${event.venue.address},${event.venue.city}`}
+            href={`https://maps.google.com/maps?f=q&q=${mapsEncode(
+              renderAddress(event.venue.address, event.venue.city),
+            )}`}
           >
             <div className="mb-3 font-sans font-bold">{event.venue.name}</div>
 
             <div className="flex items-center mb-3">
               <FiMap className="mr-2" />
               <span>
-                {event.venue.address}, {event.venue.city}
+                {renderAddress(event.venue.address, event.venue.city)}
               </span>
             </div>
 
