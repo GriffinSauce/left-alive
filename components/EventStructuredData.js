@@ -1,3 +1,4 @@
+// https://search.google.com/test/rich-results
 const EventStructuredData = ({ event }) => {
   const data = [
     {
