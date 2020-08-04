@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Nav = () => {
   return (
     <>
@@ -6,16 +8,24 @@ const Nav = () => {
           <nav className="">
             <ul className="navigation">
               <li>
-                <a href="/">Home</a>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <a href="/#music">Music</a>
+                <Link href="/#music">
+                  <a>Music</a>
+                </Link>
               </li>
               <li>
-                <a href="/#socials">Social</a>
+                <Link href="/#socials">
+                  <a>Social</a>
+                </Link>
               </li>
               <li>
-                <a href="/events">Shows</a>
+                <Link href="/events">
+                  <a>Shows</a>
+                </Link>
               </li>
               <li>
                 <a

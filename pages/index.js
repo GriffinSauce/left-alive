@@ -1,5 +1,6 @@
 import { FaSpotify, FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FiChevronRight } from 'react-icons/fi';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 import Releases from '../components/Releases';
 import MerchBanner from '../components/MerchBanner';
@@ -34,13 +35,12 @@ const Home = ({ content, futureEvents }) => {
             <AirtableContent content={content.bio} />
             <img src="/img/bandpic.jpg" alt="The band" />
             <EventsWidget events={futureEvents} />
-            <a
-              href="/events"
-              className="flex items-center justify-between p-3 transition-colors duration-75 font-display bg-primary-500 hover:bg-secondary-600"
-            >
-              <span className="text-white">All shows</span>
-              <FiChevronRight className="text-white" />
-            </a>
+            <Link href="/events">
+              <a className="flex items-center justify-between p-3 transition-colors duration-75 font-display bg-primary-500 hover:bg-secondary-600">
+                <span className="text-white">All shows</span>
+                <FiChevronRight className="text-white" />
+              </a>
+            </Link>
           </div>
         </section>
 
