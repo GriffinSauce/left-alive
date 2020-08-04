@@ -20,6 +20,8 @@ const Event = ({ event }) => {
 
   const date = parseISO(event.date);
 
+  const hasImage = event.images && event.images[0];
+
   return (
     <>
       <li className="grid w-full gap-3 break-words bg-white">
@@ -82,16 +84,31 @@ const Event = ({ event }) => {
 
             {event.eventLink ? (
               <a
-                className="flex items-center px-4 py-2"
+                className="block px-4 py-2"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={event.eventLink}
               >
-                <FiExternalLink className="flex-shrink-0 mr-2" />
-                <span className="truncate">
-                  {event.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
-                </span>
+                <div className="flex items-center">
+                  <FiExternalLink className="flex-shrink-0 mr-2" />
+                  <span className="w-56 truncate">
+                    {event.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
+                  </span>
+                </div>
+                {hasImage ? (
+                  <img
+                    className="mt-2"
+                    alt="poster"
+                    src={event.images[0].thumbnails.large.url}
+                  />
+                ) : null}
               </a>
+            ) : null}
+
+            {!event.eventLink && hasImage ? (
+              <div className="px-4 py-2">
+                <img alt="poster" src={event.images[0].thumbnails.large.url} />
+              </div>
             ) : null}
           </section>
         </div>
