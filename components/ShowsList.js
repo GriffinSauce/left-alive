@@ -3,7 +3,7 @@ import { FiClock, FiMap, FiChevronDown, FiExternalLink } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { parseISO, format } from 'date-fns';
 import AirtableContent from './AirtableContent';
-import EventStructuredData from './EventStructuredData';
+import ShowStructuredData from './ShowStructuredData';
 import Anchor from './Anchor';
 import useDimensions from '../hooks/useDimensions';
 
@@ -12,29 +12,29 @@ const renderAddress = (address, city) =>
 
 const mapsEncode = (string) => string?.replace(/\s/gm, '+');
 
-const Event = ({ event }) => {
-  if (!event.title || !event.date) return null; // Not an event then is it?!
+const Show = ({ show }) => {
+  if (!show.title || !show.date) return null; // Not a show then is it?!
 
   const maxHeight = 350;
   const [descriptionRef, { height }] = useDimensions();
   const [isCollapsed, setIsCollapsed] = useState(height > maxHeight);
   useEffect(() => setIsCollapsed(height > maxHeight), [height]);
 
-  const date = parseISO(event.date);
+  const date = parseISO(show.date);
 
-  const hasImage = event.images && event.images[0];
+  const hasImage = show.images && show.images[0];
 
   return (
     <>
       <li className="grid w-full gap-3 break-words bg-white">
-        <Anchor id={event.id} />
-        <EventStructuredData event={event} />
+        <Anchor id={show.id} />
+        <ShowStructuredData show={show} />
         <h1 className="flex flex-col sm:block">
           <span className="text-secondary-600">
             {format(date, `MMMM do yyyy`)}
           </span>
           <span className="hidden mx-2 sm:inline">/</span>
-          <span>{event.title}</span>
+          <span>{show.title}</span>
         </h1>
 
         <div className="flex flex-col-reverse grid-flow-col grid-cols-2 sm:grid">
@@ -43,7 +43,7 @@ const Event = ({ event }) => {
               <AirtableContent
                 ref={descriptionRef}
                 className="grid gap-3 break-words"
-                content={event.publicDescription}
+                content={show.publicDescription}
               />
             </div>
             {isCollapsed ? (
@@ -63,55 +63,55 @@ const Event = ({ event }) => {
               target="_blank"
               rel="noopener noreferrer"
               href={`https://maps.google.com/maps?f=q&q=${mapsEncode(
-                renderAddress(event.venue.address, event.venue.city),
+                renderAddress(show.venue.address, show.venue.city),
               )}`}
             >
-              <div className="mb-3 font-sans font-bold">{event.venue.name}</div>
+              <div className="mb-3 font-sans font-bold">{show.venue.name}</div>
 
               <div className="flex items-center">
                 <FiMap className="mr-2" />
                 <span>
-                  {renderAddress(event.venue.address, event.venue.city)}
+                  {renderAddress(show.venue.address, show.venue.city)}
                 </span>
               </div>
             </a>
 
             <div className="flex items-center px-4 py-2 text-primary-500">
               <FiClock className="mr-2" />
-              <span>{event.doors}</span>
+              <span>{show.doors}</span>
             </div>
 
             <div className="flex items-center px-4 py-2 text-primary-500">
               <RiMoneyEuroCircleLine className="mr-2" />
-              <span>{event.price}</span>
+              <span>{show.price}</span>
             </div>
 
-            {event.eventLink ? (
+            {show.eventLink ? (
               <a
                 className="block px-4 py-2"
                 target="_blank"
                 rel="noopener noreferrer"
-                href={event.eventLink}
+                href={show.eventLink}
               >
                 <div className="flex items-center">
                   <FiExternalLink className="flex-shrink-0 mr-2" />
                   <span className="w-56 truncate">
-                    {event.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
+                    {show.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
                   </span>
                 </div>
                 {hasImage ? (
                   <img
                     className="mt-2"
                     alt="poster"
-                    src={event.images[0].thumbnails.large.url}
+                    src={show.images[0].thumbnails.large.url}
                   />
                 ) : null}
               </a>
             ) : null}
 
-            {!event.eventLink && hasImage ? (
+            {!show.eventLink && hasImage ? (
               <div className="px-4 py-2">
-                <img alt="poster" src={event.images[0].thumbnails.large.url} />
+                <img alt="poster" src={show.images[0].thumbnails.large.url} />
               </div>
             ) : null}
           </section>
@@ -143,14 +143,14 @@ const Event = ({ event }) => {
   );
 };
 
-const EventsList = ({ events }) => {
+const ShowsList = ({ shows }) => {
   return (
     <ul className="grid gap-10 sm:gap-20">
-      {events.map((event) => (
-        <Event key={event.id} event={event} />
+      {shows.map((show) => (
+        <Show key={show.id} show={show} />
       ))}
     </ul>
   );
 };
 
-export default EventsList;
+export default ShowsList;

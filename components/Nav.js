@@ -23,7 +23,7 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/events">
+                <Link href="/shows">
                   <a>Shows</a>
                 </Link>
               </li>

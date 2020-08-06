@@ -15,7 +15,7 @@ export const getContentByKey = async (key) => {
   return record?.get('content') || '';
 };
 
-export const getEvents = async () => {
+export const getShows = async () => {
   const records = await getAllRecordsForTable('Shows', {
     sort: [{ field: 'Date', direction: 'desc' }],
   });
@@ -23,7 +23,7 @@ export const getEvents = async () => {
   return populated.map(recordToObject);
 };
 
-export const getUpcomingEvents = async () => {
+export const getUpcomingShows = async () => {
   const records = await getAllRecordsForTable('Shows', {
     sort: [{ field: 'Date', direction: 'desc' }],
     filter: 'IS_AFTER({Date}, NOW())',

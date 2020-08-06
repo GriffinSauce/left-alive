@@ -10,16 +10,16 @@ import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
 import Button from '../components/Button';
 import AirtableContent from '../components/AirtableContent';
-import EventsWidget from '../components/EventsWidget';
+import ShowsWidget from '../components/ShowsWidget';
 import Hero from '../components/Hero';
 import Anchor from '../components/Anchor';
 import Footer from '../components/Footer';
-import { getContentByKey, getUpcomingEvents } from '../services/db';
+import { getContentByKey, getUpcomingShows } from '../services/db';
 
 // Keep this a complete class to tailwind purge doesn't kill it
 const COLUMN_V_GAP = 'gap-12';
 
-const Home = ({ content, futureEvents }) => {
+const Home = ({ content, futureShows }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -36,8 +36,8 @@ const Home = ({ content, futureEvents }) => {
             <img src="/img/bandpic.jpg" alt="The band" />
 
             <h2 className="mt-6">Upcoming shows</h2>
-            <EventsWidget events={futureEvents} />
-            <Link href="/events">
+            <ShowsWidget shows={futureShows} />
+            <Link href="/shows">
               <a className="flex items-center justify-between p-3 transition-colors duration-75 font-display bg-primary-500 hover:bg-secondary-600">
                 <span className="text-white">All shows</span>
                 <FiChevronRight className="text-white" />
@@ -153,13 +153,13 @@ export async function getStaticProps() {
     bio,
     newsletterHeader,
     newsletterBody,
-    futureEvents,
+    futureShows,
   ] = await Promise.all([
     getContentByKey('home-header'),
     getContentByKey('home-bio'),
     getContentByKey('home-newsletter-header'),
     getContentByKey('home-newsletter-body'),
-    getUpcomingEvents(),
+    getUpcomingShows(),
   ]);
   return {
     props: {
@@ -169,7 +169,7 @@ export async function getStaticProps() {
         newsletterHeader,
         newsletterBody,
       },
-      futureEvents,
+      futureShows,
     },
   };
 }

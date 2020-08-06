@@ -1,10 +1,10 @@
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
-import EventsList from '../components/EventsList';
+import ShowsList from '../components/ShowsList';
 import Footer from '../components/Footer';
-import { getEvents } from '../services/db';
+import { getShows } from '../services/db';
 
-const Events = ({ events }) => {
+const Shows = ({ shows }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -12,11 +12,11 @@ const Events = ({ events }) => {
 
       <article className="container grid -mt-10 sm:-mt-48">
         <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
-          Events
+          shows
         </h1>
 
         <div className="grid gap-3 p-6 text-lg bg-white">
-          <EventsList events={events} />
+          <ShowsList shows={shows} />
         </div>
       </article>
 
@@ -28,9 +28,9 @@ const Events = ({ events }) => {
 export async function getStaticProps() {
   return {
     props: {
-      events: await getEvents(),
+      shows: await getShows(),
     },
   };
 }
 
-export default Events;
+export default Shows;

@@ -1,11 +1,11 @@
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import AirtableContent from '../components/AirtableContent';
-import EventsWidget from '../components/EventsWidget';
+import ShowsWidget from '../components/ShowsWidget';
 import Footer from '../components/Footer';
-import { getContentByKey, getUpcomingEvents } from '../services/db';
+import { getContentByKey, getUpcomingShows } from '../services/db';
 
-const About = ({ content, futureEvents }) => {
+const About = ({ content, futureShows }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
@@ -26,7 +26,7 @@ const About = ({ content, futureEvents }) => {
           <AirtableContent content={content.en} />
         </div>
         <div className="mt-6">
-          <EventsWidget events={futureEvents} />
+          <ShowsWidget shows={futureShows} />
         </div>
       </article>
 
@@ -36,12 +36,12 @@ const About = ({ content, futureEvents }) => {
 };
 
 export async function getStaticProps() {
-  const [header, quote, nl, en, futureEvents] = await Promise.all([
+  const [header, quote, nl, en, futureShows] = await Promise.all([
     getContentByKey('about-header'),
     getContentByKey('about-quote'),
     getContentByKey('about-nl'),
     getContentByKey('about-en'),
-    getUpcomingEvents(),
+    getUpcomingShows(),
   ]);
   return {
     props: {
@@ -51,7 +51,7 @@ export async function getStaticProps() {
         nl,
         en,
       },
-      futureEvents,
+      futureShows,
     },
   };
 }
