@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import ShowsList from '../components/ShowsList';
@@ -6,22 +7,28 @@ import { getShows } from '../services/db';
 
 const Shows = ({ shows }) => {
   return (
-    <div className="bg-gray-300">
-      <Nav />
-      <Hero compact />
+    <>
+      <Head>
+        <title>Left Alive - Shows</title>
+        <meta property="og:title" content="Left Alive - Shows" />
+      </Head>
+      <div className="bg-gray-300">
+        <Nav />
+        <Hero compact />
 
-      <article className="container grid -mt-10 sm:-mt-48">
-        <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
-          shows
-        </h1>
+        <article className="container grid -mt-10 sm:-mt-48">
+          <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
+            shows
+          </h1>
 
-        <div className="grid gap-3 p-6 text-lg bg-white">
-          <ShowsList shows={shows} />
-        </div>
-      </article>
+          <div className="grid gap-3 p-6 text-lg bg-white">
+            <ShowsList shows={shows} />
+          </div>
+        </article>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

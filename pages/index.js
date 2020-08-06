@@ -32,7 +32,7 @@ const Home = ({ content, futureShows }) => {
           </h2>
 
           <div className="grid gap-3 p-6 text-lg bg-white">
-            <AirtableContent content={content.bio} />
+            <AirtableContent content={content.bio} className="grid gap-3" />
             <img src="/img/bandpic.jpg" alt="The band" />
 
             <h2 className="mt-6">Upcoming shows</h2>

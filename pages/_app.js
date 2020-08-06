@@ -5,7 +5,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>Left Alive</title>
+        <title>Left Alive - Pop punk from the heart</title>
         <link rel="icon" href="/favicon.ico" />
 
         <link href="/img/icons/favicon.ico" rel="shortcut icon" />
