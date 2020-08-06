@@ -34,6 +34,8 @@ const Home = ({ content, futureEvents }) => {
           <div className="grid gap-3 p-6 text-lg bg-white">
             <AirtableContent content={content.bio} />
             <img src="/img/bandpic.jpg" alt="The band" />
+
+            <h2 className="mt-6">Upcoming shows</h2>
             <EventsWidget events={futureEvents} />
             <Link href="/events">
               <a className="flex items-center justify-between p-3 transition-colors duration-75 font-display bg-primary-500 hover:bg-secondary-600">

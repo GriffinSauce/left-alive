@@ -8,7 +8,6 @@ const App = ({ Component, pageProps }) => {
         <title>Left Alive</title>
         <link rel="icon" href="/favicon.ico" />
 
-        <link href="//www.google-analytics.com" rel="dns-prefetch" />
         <link href="/img/icons/favicon.ico" rel="shortcut icon" />
         <link href="/img/icons/touch.png" rel="apple-touch-icon-precomposed" />
 
@@ -23,7 +22,7 @@ const App = ({ Component, pageProps }) => {
         <meta property="og:url" content="http://www.leftalive.nl/" />
         <meta
           property="og:image"
-          content="http://www.leftalive.nl/wp-content/themes/LeftAliveWPTheme/img/leftalive.jpg"
+          content="http://www.leftalive.nl/img/img/leftalive.jpg"
         />
         <meta
           property="og:description"
