@@ -29,37 +29,46 @@ const NewsletterForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-3">
           <p>
-            <input
-              className="text-center"
-              type="text"
-              name="name"
-              placeholder="your name"
-              required=""
-              ref={register({
-                required: 'please add your name',
-                pattern: {
-                  value: /[a-z]+/i,
-                  message: 'please add your name',
-                },
-              })}
-            />
+            <label htmlFor="name">
+              <div className="text-left text-white label">Your name</div>
+              <input
+                id="name"
+                className="text-center"
+                type="text"
+                name="name"
+                placeholder="..."
+                required=""
+                ref={register({
+                  required: 'please add your name',
+                  pattern: {
+                    value: /[a-z]+/i,
+                    message: 'please add your name',
+                  },
+                })}
+              />
+            </label>
             {errors?.name?.message}
           </p>
           <p>
-            <input
-              className="text-center"
-              type="email"
-              name="email"
-              placeholder="email"
-              required=""
-              ref={register({
-                required: 'please add your email',
-                pattern: {
-                  value: /@/,
-                  message: 'invalid email address',
-                },
-              })}
-            />
+            <label htmlFor="email">
+              <div className="text-left text-white label">Your email</div>
+              <input
+                id="email"
+                className="text-center"
+                type="email"
+                name="email"
+                placeholder="..."
+                required=""
+                ref={register({
+                  required: 'please add your email',
+                  pattern: {
+                    value: /@/,
+                    message: 'invalid email address',
+                  },
+                })}
+              />
+            </label>
+            {errors?.email?.message}
           </p>
           <label style={{ display: 'none' }} htmlFor="hp">
             {`Leave this field empty if you're human: `}

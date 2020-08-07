@@ -18,6 +18,7 @@ const Youtube = ({ title, videoId }) => {
         ) : (
           <button
             type="button"
+            aria-label="Load and play Youtube video"
             onClick={() => setLoaded(true)}
             className="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-center bg-cover"
             style={{

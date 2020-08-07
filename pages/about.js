@@ -24,7 +24,7 @@ const About = ({ content, futureShows }) => {
 
           <div className="grid gap-3 p-6 text-lg bg-white">
             <AirtableContent
-              className="m-8 text-2xl italic text-center font-display text-secondary-500"
+              className="m-8 text-3xl italic text-center font-display text-secondary-500"
               content={content.quote}
             />
             <AirtableContent content={content.nl} className="grid gap-3" />

@@ -17,7 +17,7 @@ const ShowsWidget = ({ shows }) => {
                     <span>{show.title}</span>
                     <FiChevronRight />
                   </h3>
-                  <div className="flex justify-between p-3 bg-gray-200 text-primary-500">
+                  <div className="flex justify-between p-3 text-lg font-semibold bg-gray-200 text-primary-500">
                     <div>
                       <div>{`${format(date, `MMMM do`)} - ${show.doors}`}</div>
                       <div>{show.venue.city}</div>

@@ -50,7 +50,6 @@ h6,
   @apply text-xs;
 }
 
-label,
 .label {
   @apply font-display;
 }

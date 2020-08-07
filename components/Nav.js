@@ -1,92 +1,46 @@
 import Link from 'next/link';
 
+const NavLink = ({ children, href, target, rel }) => {
+  const className =
+    'block p-2 text-sm text-gray-700 border-b-2 border-white sm:p-3 sm:text-base hover:font-semibold hover:text-secondary-600 hover:border-secondary-600';
+  if (href.startsWith('http'))
+    return (
+      <li>
+        <a href={href} target={target} rel={rel} className={className}>
+          {children}
+        </a>
+      </li>
+    );
+
+  return (
+    <li>
+      <Link href={href} target={target} rel={rel}>
+        <a className={className}>{children}</a>
+      </Link>
+    </li>
+  );
+};
+
 const Nav = () => {
   return (
     <>
-      <div className="navigation-wrapper">
-        <div className="container">
-          <nav className="">
-            <ul className="navigation">
-              <li>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#music">
-                  <a>Music</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#socials">
-                  <a>Social</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/shows">
-                  <a>Shows</a>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://www.epicmerchstore.com/collection/left-alive/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Merch
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div className="bg-white border-b border-gray-200">
+        <nav className="container">
+          <ul className="flex justify-between max-w-full m-auto text-center">
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/#music">Music</NavLink>
+            <NavLink href="/#socials">Social</NavLink>
+            <NavLink href="/shows">Shows</NavLink>
+            <NavLink
+              href="https://www.epicmerchstore.com/collection/left-alive/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Merch
+            </NavLink>
+          </ul>
+        </nav>
       </div>
-      <style jsx>{`
-        .navigation-wrapper {
-          background-color: #fff;
-          border-bottom: 1px solid #eee;
-          z-index: 999;
-        }
-        .navigation-wrapper nav {
-          padding: 0;
-        }
-        .navigation {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-          justify-content: space-between;
-          text-align: center;
-          max-width: 100%;
-          margin: 0 auto;
-          padding: 0;
-          list-style: none;
-        }
-        .navigation li {
-          display: block;
-        }
-        .navigation li a {
-          display: block;
-          color: #999;
-          font-size: 0.8rem;
-          padding: 0.6rem 0.2rem;
-          border-bottom: 2px solid #fff;
-          -webkit-transition: border 150ms ease;
-          transition: border 150ms ease;
-        }
-        .navigation li a:hover {
-          color: #ff8da1;
-          border-bottom-color: #ff8da1;
-        }
-
-        @media only screen and (min-width: 768px) {
-          .navigation li a {
-            font-size: 0.95rem;
-            padding-top: 0.6rem;
-            padding-bottom: 0.6rem;
-          }
-        }
-      `}</style>
     </>
   );
 };

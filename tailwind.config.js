@@ -51,6 +51,7 @@ module.exports = {
       'group-hover',
     ],
     borderRadius: ['responsive', 'first', 'last'],
+    borderColor: ['hover'],
   },
   plugins: [],
 };
