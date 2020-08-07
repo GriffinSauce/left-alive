@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FiClock, FiMap, FiChevronDown, FiExternalLink } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { parseISO, format } from 'date-fns';
+import ModalImage from 'react-modal-image';
 import AirtableContent from './AirtableContent';
 import ShowStructuredData from './ShowStructuredData';
 import Anchor from './Anchor';
@@ -11,6 +12,8 @@ const renderAddress = (address, city) =>
   [address, city].filter(Boolean).join(', ');
 
 const mapsEncode = (string) => string?.replace(/\s/gm, '+');
+
+const isImageAttachment = (attachment) => attachment.type.startsWith('image');
 
 const Show = ({ show }) => {
   if (!show.title || !show.date) return null; // Not a show then is it?!
@@ -22,7 +25,7 @@ const Show = ({ show }) => {
 
   const date = parseISO(show.date);
 
-  const hasImage = show.images && show.images[0];
+  const thumbnails = show.images?.filter(isImageAttachment)?.[0]?.thumbnails;
 
   return (
     <>
@@ -39,6 +42,15 @@ const Show = ({ show }) => {
 
         <div className="flex flex-col-reverse grid-flow-col grid-cols-2 sm:grid">
           <section className="p-4 text-base bg-gray-100">
+            {thumbnails ? (
+              <ModalImage
+                className="w-48 mb-3 rounded"
+                small={thumbnails.large.url}
+                large={thumbnails.full.url}
+                alt="poster"
+              />
+            ) : null}
+
             <div className={isCollapsed ? 'description-truncate' : ''}>
               <AirtableContent
                 ref={descriptionRef}
@@ -99,20 +111,7 @@ const Show = ({ show }) => {
                     {show.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
                   </span>
                 </div>
-                {hasImage ? (
-                  <img
-                    className="mt-2"
-                    alt="poster"
-                    src={show.images[0].thumbnails.large.url}
-                  />
-                ) : null}
               </a>
-            ) : null}
-
-            {!show.eventLink && hasImage ? (
-              <div className="px-4 py-2">
-                <img alt="poster" src={show.images[0].thumbnails.large.url} />
-              </div>
             ) : null}
           </section>
         </div>
