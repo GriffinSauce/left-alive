@@ -31,7 +31,7 @@ const App = ({ Component, pageProps }) => {
         <meta property="og:site_name" content="Left Alive" />
 
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,700italic"
+          href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&display=swap"
           rel="stylesheet"
           type="text/css"
         />
