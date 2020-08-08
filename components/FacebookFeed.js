@@ -30,6 +30,7 @@ const FacebookFeed = () => {
               <img
                 src={item.poster_image}
                 alt=""
+                loading="lazy"
                 className="w-8 h-8 mr-2 rounded-full"
               />
               <span>{item.poster_name}</span>
@@ -43,7 +44,7 @@ const FacebookFeed = () => {
               }}
             />
             <a href={item.full_url} rel="noopener noreferrer" target="_blank">
-              <img src={item.image} alt="" />
+              <img src={item.image} alt="" loading="lazy" />
             </a>
             <a
               href={item.full_url}

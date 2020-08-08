@@ -17,7 +17,7 @@ const InstaFeed = () => {
       {data.posts.items.map((item) => (
         <li key={item.id}>
           <a href={item.full_url} rel="noopener noreferrer" target="_blank">
-            <img src={item.image} alt="" />
+            <img src={item.image} alt="" loading="lazy" />
           </a>
         </li>
       ))}
