@@ -14,7 +14,7 @@ const NavLink = ({ children, href, target, rel }) => {
 
   return (
     <li>
-      <Link href={href} target={target} rel={rel}>
+      <Link href={href}>
         <a className={className}>{children}</a>
       </Link>
     </li>
