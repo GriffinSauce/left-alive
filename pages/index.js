@@ -33,7 +33,16 @@ const Home = ({ content, futureShows }) => {
 
           <div className="grid gap-3 p-6 text-lg bg-white">
             <AirtableContent content={content.bio} className="grid gap-3" />
-            <img src="/img/bandpic.jpg" alt="The band" />
+
+            <picture>
+              <source srcSet="/img/bandpic.webp" type="image/webp" />
+              <source srcSet="/img/bandpic.jpg" type="image/jpeg" />
+              <img
+                src="/img/bandpic.jpg"
+                alt="The band on stage at Westerpop"
+                loading="lazy"
+              />
+            </picture>
 
             <h2 className="mt-6">Upcoming shows</h2>
             <ShowsWidget shows={futureShows} />
