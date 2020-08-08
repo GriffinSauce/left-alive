@@ -8,7 +8,7 @@ export const isRecord = (maybeRecord) =>
   isObject(maybeRecord) && maybeRecord._rawJson;
 
 export const recordToObject = (record) =>
-  Object.keys(record.fields).reduce((fields, key) => {
+  Object.keys(record.fields || {}).reduce((fields, key) => {
     const value = record.get(key);
     let converted = isRecord(value) ? recordToObject(value) : value;
     if (Array.isArray(value) && isRecord(value[0])) {

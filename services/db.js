@@ -1,33 +1,51 @@
-import {
-  getRecordByKeyField,
-  getAllRecordsForTable,
-  populate,
-  recordToObject,
-} from '../utils/airtable';
+import { initialize, getByField, get, recordToObject } from '../utils/airtable';
+
+initialize({
+  baseId: 'appfUKrkbUfTkWvyh',
+  schemas: {
+    Shows: {
+      populateFields: [
+        { path: 'Venue', from: 'Venues', multi: false },
+        { path: 'With', from: 'Bands', multi: true, fields: ['Name'] },
+      ],
+    },
+  },
+});
 
 export const getContentByKey = async (key) => {
-  const tableId = `Website-content`;
-  const record = await getRecordByKeyField({
-    tableId,
+  const record = await getByField('Website-content', {
     key,
-    keyField: 'key',
+    field: 'key',
   });
   return record?.get('content') || '';
 };
 
 export const getShows = async () => {
-  const records = await getAllRecordsForTable('Shows', {
-    sort: [{ field: 'Date', direction: 'desc' }],
-  });
-  const populated = await Promise.all(records.map(populate));
-  return populated.map(recordToObject);
+  let records;
+  try {
+    records = await get('Shows', {
+      sort: [{ field: 'Date', direction: 'desc' }],
+      populate: [
+        {
+          path: 'Venue',
+          from: 'Venues',
+          multi: false,
+          fields: ['Address', 'City', 'Name'],
+        },
+        { path: 'With', from: 'Bands', multi: true, fields: ['Name'] },
+      ],
+    });
+  } catch (err) {
+    console.error(err);
+    throw new Error(`Fetching shows failed`);
+  }
+  return records.map(recordToObject);
 };
 
 export const getUpcomingShows = async () => {
-  const records = await getAllRecordsForTable('Shows', {
+  const records = await get('Shows', {
     sort: [{ field: 'Date', direction: 'desc' }],
     filter: 'IS_AFTER({Date}, NOW())',
   });
-  const populated = await Promise.all(records.map(populate));
-  return populated.map(recordToObject);
+  return records.map(recordToObject);
 };
