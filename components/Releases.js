@@ -1,8 +1,8 @@
 const Img = ({ src, alt }) => (
   <picture>
-    <source srcSet={`${src}.webp"`} type="image/webp" />
-    <source srcSet={`${src}.jpg"`} type="image/jpeg" />
-    <img src={`${src}.jpg"`} alt={alt} loading="lazy" />
+    <source srcSet={`${src}.webp`} type="image/webp" />
+    <source srcSet={`${src}.jpg`} type="image/jpeg" />
+    <img src={`${src}.jpg`} alt={alt} loading="lazy" />
   </picture>
 );
 
