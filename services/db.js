@@ -1,23 +1,17 @@
-import { initialize, getByField, get, recordToObject } from '../utils/airtable';
+import { initialize, getByField, get } from '../utils/airtable';
 
 initialize({
   baseId: 'appfUKrkbUfTkWvyh',
-  schemas: {
-    Shows: {
-      populateFields: [
-        { path: 'Venue', from: 'Venues', multi: false },
-        { path: 'With', from: 'Bands', multi: true, fields: ['Name'] },
-      ],
-    },
-  },
+  apiKey: process.env.AIRTABLE_API_KEY,
 });
 
 export const getContentByKey = async (key) => {
   const record = await getByField('Website-content', {
     key,
     field: 'key',
+    toObject: true,
   });
-  return record?.get('content') || '';
+  return record?.content || '';
 };
 
 export const getShows = async () => {
@@ -34,18 +28,31 @@ export const getShows = async () => {
         },
         { path: 'With', from: 'Bands', multi: true, fields: ['Name'] },
       ],
+      toObject: true,
     });
   } catch (err) {
     console.error(err);
     throw new Error(`Fetching shows failed`);
   }
-  return records.map(recordToObject);
+  return records;
 };
 
 export const getUpcomingShows = async () => {
   const records = await get('Shows', {
     sort: [{ field: 'Date', direction: 'desc' }],
+    fields: [
+      'Title',
+      'Date',
+      'Doors',
+      'Venue',
+      'Price',
+      'Public-description',
+      'Event-link',
+      'Images',
+      'Created',
+    ],
     filter: 'IS_AFTER({Date}, NOW())',
+    toObject: true,
   });
-  return records.map(recordToObject);
+  return records;
 };
