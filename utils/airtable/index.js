@@ -5,16 +5,14 @@ import reduce from 'awaity/reduce';
 // TODO: Document params, everywhere
 
 let base;
-let schemas;
 
 // TODO: Singletons are annoying with multiple sources, refactor to more reusable class?
-export const initialize = ({ baseId, schemas: _schemas }) => {
+export const initialize = ({ baseId }) => {
   const isAirtableEnabled = !!process.env.AIRTABLE_API_KEY;
   if (!isAirtableEnabled)
     throw new Error(`AIRTABLE_API_KEY is not set, luft init failed`);
 
   base = Airtable.base(baseId);
-  schemas = _schemas;
 };
 
 export { recordToObject, getTableName } from './utils';
