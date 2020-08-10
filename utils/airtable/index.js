@@ -28,14 +28,12 @@ const populateField = async (record, { path, from, multi, fields }) => {
   try {
     /* eslint-disable no-use-before-define */
     result = multi
-      ? await Promise.all(
-          ref.map((recordId) =>
-            getById(from, {
-              recordId,
-              fields,
-            }),
-          ),
-        )
+      ? await get(from, {
+          filter: `OR(${ref
+            .map((recordId) => `RECORD_ID()="${recordId}"`)
+            .join(',')})`,
+          fields,
+        })
       : await getById(from, {
           recordId: ref,
           fields,
@@ -95,7 +93,7 @@ export const get = async (
 ) => {
   const records = await base(tableId)
     .select({
-      sort,
+      ...(sort ? { sort } : {}),
       ...(fields ? { fields } : {}),
       ...(filter ? { filterByFormula: filter } : {}),
     })
