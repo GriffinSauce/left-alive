@@ -1,4 +1,4 @@
-import { initialize, getByField, get } from '../utils/airtable';
+import { initialize, getByField, get } from 'luft';
 
 initialize({
   baseId: 'appfUKrkbUfTkWvyh',
