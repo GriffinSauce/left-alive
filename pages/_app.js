@@ -30,7 +30,11 @@ const App = ({ Component, pageProps }) => {
         />
         <meta property="og:site_name" content="Left Alive" />
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
         <link
           rel="preload"
           href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&display=swap"
@@ -42,7 +46,11 @@ const App = ({ Component, pageProps }) => {
           type="text/css"
         />
 
-        <link rel="preconnect" href="https://use.typekit.net" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          crossOrigin="true"
+        />
         <link
           rel="preload"
           href="https://use.typekit.net/fue2pbb.css"
