@@ -37,6 +37,9 @@ module.exports = {
           500: '#cb3190;',
         },
       },
+      spacing: {
+        '14': '3.5rem',
+      },
     },
   },
   variants: {
@@ -54,4 +57,8 @@ module.exports = {
     borderColor: ['hover'],
   },
   plugins: [],
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
 };
