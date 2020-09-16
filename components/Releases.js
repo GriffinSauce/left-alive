@@ -43,7 +43,7 @@ const Releases = () => {
       <div className="grid grid-cols-4 mt-8 mb-2 music-links">
         <a
           className="text-xs text-center"
-          href="https://music.apple.com/us/album/liars/1461679307?i=1461679308&amp;uo=4&amp;app=music&amp;ls=1&amp;at=1000lHKX"
+          href="https://music.apple.com/us/artist/left-alive/1073464999"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Listen to Left Alive on Apple Music"
