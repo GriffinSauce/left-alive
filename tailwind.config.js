@@ -38,10 +38,7 @@ module.exports = {
         },
       },
       spacing: {
-        '72': '18rem',
-        '84': '21rem',
-        '96': '24rem',
-        '128': '32rem',
+        '14': '3.5rem',
       },
     },
   },
@@ -60,4 +57,8 @@ module.exports = {
     borderColor: ['hover'],
   },
   plugins: [],
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
 };

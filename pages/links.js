@@ -2,16 +2,22 @@ import { AiOutlineLink } from 'react-icons/ai';
 import { SiSpotify, SiInstagram, SiApplemusic } from 'react-icons/si';
 import NextLink from 'next/link';
 
-const Link = ({ href, children }) => {
+const Link = ({ href, children, thumbnail }) => {
   return (
-    <a
-      className="flex items-center justify-start p-2 text-gray-800 bg-white rounded"
-      href={href}
-    >
-      <div className="p-3 mr-2 text-gray-500 bg-gray-100 rounded">
-        <AiOutlineLink />
+    <a className="flex items-center justify-start bg-white rounded" href={href}>
+      <div
+        className="flex items-center justify-center text-gray-500 bg-gray-100 bg-center bg-cover rounded-tl rounded-bl w-14 h-14"
+        style={
+          thumbnail
+            ? {
+                backgroundImage: `url(${thumbnail})`,
+              }
+            : {}
+        }
+      >
+        {thumbnail ? null : <AiOutlineLink />}
       </div>
-      <span>{children}</span>
+      <span className="px-3 font-semibold text-gray-800">{children}</span>
     </a>
   );
 };
@@ -33,7 +39,10 @@ const Links = () => {
             <Link href="https://open.spotify.com/album/10jhsN6ekL25vaBvtZO0ja?si=4gNysK4vTAS4D61l6QWPJA">
               Listen to 'Staying Safe: A Postcard to Punk'
             </Link>
-            <Link href="https://www.youtube.com/watch?v=ypjM2_CkeXs">
+            <Link
+              href="https://www.youtube.com/watch?v=ypjM2_CkeXs"
+              thumbnail="https://img.youtube.com/vi/ypjM2_CkeXs/0.jpg"
+            >
               Watch the video for 'Promise'
             </Link>
             <Link href="https://www.epicmerchstore.com/collection/left-alive/">
@@ -43,7 +52,7 @@ const Links = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center space-x-3 text-3xl">
+        <div className="flex items-center justify-center space-x-3 text-4xl">
           <a
             className="p-1"
             href="https://instagram.com/leftaliveband"
