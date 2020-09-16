@@ -4412,10 +4412,10 @@ lru-cache@5.1.1, lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-luft@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/luft/-/luft-0.1.0.tgz#d801ae9dcc620d5bae0b6afbbdea5916af08b3b3"
-  integrity sha512-HpMimSP08ja9hKcWMSWNCJpC039jsHnPEGs63ljIye/EzqaB8SBrbPJCfXJrkfqa5XUTjxANBlZeBwZfP1LIhQ==
+luft@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/luft/-/luft-0.2.0.tgz#f06e561d2d2685a4bc6d277263561e00ad786159"
+  integrity sha512-Ox2dAWsx/OGHca0WgVlOFfiEfY1u0yKgK6W0yMCaR08WxC6mRGrA/Tsk55lktisgko1+PBEX48C7M3sWqA1REg==
   dependencies:
     "@types/airtable" "^0.8.0"
     "@types/lodash.camelcase" "^4.3.6"

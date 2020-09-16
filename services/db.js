@@ -56,3 +56,17 @@ export const getUpcomingShows = async () => {
   });
   return records;
 };
+
+export const getLinks = async () => {
+  let records;
+  try {
+    records = await get('Links', {
+      toObject: true,
+      view: 'Default',
+    });
+  } catch (err) {
+    console.error(err);
+    throw new Error(`Fetching links failed`);
+  }
+  return records;
+};

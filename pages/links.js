@@ -1,10 +1,17 @@
 import { AiOutlineLink } from 'react-icons/ai';
 import { SiSpotify, SiInstagram, SiApplemusic } from 'react-icons/si';
 import NextLink from 'next/link';
+import { getLinks } from '../services/db';
 
 const Link = ({ href, children, thumbnail }) => {
   return (
-    <a className="flex items-center justify-start bg-white rounded" href={href}>
+    <a
+      className="flex items-center justify-start bg-white rounded"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={children}
+    >
       <div
         className="flex items-center justify-center text-gray-500 bg-gray-100 bg-center bg-cover rounded-tl rounded-bl w-14 h-14"
         style={
@@ -22,7 +29,7 @@ const Link = ({ href, children, thumbnail }) => {
   );
 };
 
-const Links = () => {
+const Links = ({ links }) => {
   return (
     <div className="w-full h-screen bg-gradient-to-tr from-purple-400 via-pink-500 to-red-500">
       <div className="grid gap-6">
@@ -36,19 +43,15 @@ const Links = () => {
 
         <div className="flex flex-col items-center justify-center px-3">
           <div className="grid w-full max-w-sm gap-4">
-            <Link href="https://open.spotify.com/album/10jhsN6ekL25vaBvtZO0ja?si=4gNysK4vTAS4D61l6QWPJA">
-              Listen to 'Staying Safe: A Postcard to Punk'
-            </Link>
-            <Link
-              href="https://www.youtube.com/watch?v=ypjM2_CkeXs"
-              thumbnail="https://img.youtube.com/vi/ypjM2_CkeXs/0.jpg"
-            >
-              Watch the video for 'Promise'
-            </Link>
-            <Link href="https://www.epicmerchstore.com/collection/left-alive/">
-              Get some swag 👕
-            </Link>
-            <Link href="https://leftalive.nl">Our website</Link>
+            {links.map((link) => (
+              <Link
+                key={link.url}
+                href={link.url}
+                thumbnail={link.thumbnail?.thumbnails?.large?.url}
+              >
+                {link.title}
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -85,5 +88,17 @@ const Links = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const linksData = await getLinks();
+  return {
+    props: {
+      links: linksData.map((link) => ({
+        ...link,
+        thumbnail: link.thumbnail?.[0] || null, // Unwrap first attachment
+      })),
+    },
+  };
+}
 
 export default Links;
