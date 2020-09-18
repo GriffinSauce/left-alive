@@ -40,6 +40,9 @@ module.exports = {
       spacing: {
         '14': '3.5rem',
       },
+      padding: {
+        full: '100%',
+      },
     },
   },
   variants: {
