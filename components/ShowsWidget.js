@@ -5,7 +5,7 @@ import Link from 'next/link';
 const ShowsWidget = ({ shows }) => {
   return (
     <>
-      <ul>
+      <ul className="space-y-3">
         {shows.map((show) => {
           const date = parseISO(show.date);
 
