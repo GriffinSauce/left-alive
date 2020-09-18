@@ -30,9 +30,8 @@ const App = ({ Component, pageProps }) => {
         />
         <meta property="og:site_name" content="Left Alive" />
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossoOrigin />
-        <link rel="preconnect" href="https://p.typekit.net" crossoOrigin />
-        <link rel="preconnect" href="https://use.typekit.net" crossoOrigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://p.typekit.net" crossorigin />
         <link
           rel="preload"
           href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&display=swap"
