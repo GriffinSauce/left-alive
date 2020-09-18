@@ -9,7 +9,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "awaity": "^1.0.0",
     "date-fns": "^2.16.1",
     "isomorphic-unfetch": "^3.0.0",
     "lodash.camelcase": "^4.3.0",

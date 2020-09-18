@@ -1,6 +1,7 @@
 import { FiClock, FiMap, FiExternalLink } from 'react-icons/fi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
-import { parseISO, format } from 'date-fns';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 import ModalImage from 'react-modal-image';
 import AirtableContent from './AirtableContent';
 import ShowStructuredData from './ShowStructuredData';

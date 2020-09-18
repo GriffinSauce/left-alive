@@ -1,4 +1,5 @@
-import { parseISO, format } from 'date-fns';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 
