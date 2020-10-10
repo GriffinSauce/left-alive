@@ -4,6 +4,10 @@ import NextLink from 'next/link';
 import { getLinks } from '../services/db';
 
 const Link = ({ href, children, thumbnail }) => {
+  const onClick = () => {
+    plausible('Click link');
+  };
+
   return (
     <a
       className="flex items-center justify-start bg-white rounded"
@@ -11,6 +15,7 @@ const Link = ({ href, children, thumbnail }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={children}
+      onClick={onClick}
     >
       <div
         className="flex items-center justify-center text-gray-500 bg-gray-100 bg-center bg-cover rounded-tl rounded-bl w-14 h-14"

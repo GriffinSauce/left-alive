@@ -64,6 +64,7 @@
     ]
   },
   "globals": {
-    "React": "writable"
+    "React": "readonly",
+    "plausible": "readonly"
   }
 }

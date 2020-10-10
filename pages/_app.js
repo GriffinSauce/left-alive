@@ -55,6 +55,14 @@ const App = ({ Component, pageProps }) => {
           data-domain="leftalive.nl"
           src="https://plausible.io/js/plausible.js"
         />
+        <script
+          // eslint-disable-next-line
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+            `,
+          }}
+        />
       </Head>
       <Component {...pageProps} />
     </>
