@@ -48,6 +48,13 @@ const App = ({ Component, pageProps }) => {
           type="text/css"
         />
         <link rel="stylesheet" href="https://use.typekit.net/fue2pbb.css" />
+
+        <script
+          async
+          defer
+          data-domain="leftalive.nl"
+          src="https://plausible.io/js/plausible.js"
+        />
       </Head>
       <Component {...pageProps} />
     </>
