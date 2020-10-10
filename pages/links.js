@@ -31,9 +31,9 @@ const Link = ({ href, children, thumbnail }) => {
 
 const Links = ({ links }) => {
   return (
-    <div className="w-full h-screen bg-gradient-to-tr from-purple-400 via-pink-500 to-red-500">
+    <div className="w-full min-h-screen py-6 bg-gradient-to-tr from-purple-400 via-pink-500 to-red-500">
       <div className="grid gap-6">
-        <header className="pt-6 text-center">
+        <header className="text-center">
           <NextLink href="/" as="/">
             <a className="inline-block w-3/4 text-white">
               <img alt="Left Alive" src="/img/logo-white.svg" />
