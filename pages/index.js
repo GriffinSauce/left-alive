@@ -1,6 +1,7 @@
 import { FaSpotify, FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
+import Image from 'next/image';
 import Nav from '../components/Nav';
 import Releases from '../components/Releases';
 import MerchBanner from '../components/MerchBanner';
@@ -34,15 +35,16 @@ const Home = ({ content, futureShows }) => {
           <div className="grid gap-3 p-6 text-lg bg-white">
             <AirtableContent content={content.bio} className="grid gap-3" />
 
-            <picture>
-              <source srcSet="/img/bandpic.webp" type="image/webp" />
-              <source srcSet="/img/bandpic.jpg" type="image/jpeg" />
-              <img
+            <div className="min-w-0">
+              <Image
                 src="/img/bandpic.jpg"
                 alt="The band on stage at Westerpop"
                 loading="lazy"
+                width={2000}
+                height={2000}
+                quality={90}
               />
-            </picture>
+            </div>
 
             <h2 className="mt-6">Upcoming shows</h2>
             <ShowsWidget shows={futureShows} />

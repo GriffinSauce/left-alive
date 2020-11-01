@@ -1,9 +1,16 @@
+import Image from 'next/image';
+
 const Img = ({ src, alt }) => (
-  <picture>
-    <source srcSet={`${src}.webp`} type="image/webp" />
-    <source srcSet={`${src}.jpg`} type="image/jpeg" />
-    <img src={`${src}.jpg`} alt={alt} loading="lazy" />
-  </picture>
+  <div className="min-w-0">
+    <Image
+      src={src}
+      alt={alt}
+      loading="lazy"
+      width={400}
+      height={400}
+      quality={80}
+    />
+  </div>
 );
 
 const Releases = () => {
@@ -15,21 +22,21 @@ const Releases = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Img src="/img/release-promise" alt="Promise single" />
+          <Img src="/img/release-promise.jpg" alt="Promise single" />
         </a>
         <a
           href="https://open.spotify.com/track/5wCDNamRAJvFyHWjm9l5y2"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Img src="/img/release-liars" alt="Liars single" />
+          <Img src="/img/release-liars.jpg" alt="Liars single" />
         </a>
         <a
           href="https://open.spotify.com/track/51josIdonJjiuQaTU7ISpV"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Img src="/img/release-leaveit" alt="Leave it single" />
+          <Img src="/img/release-leaveit.jpg" alt="Leave it single" />
         </a>
         <a
           className="border border-gray-300"
@@ -37,7 +44,7 @@ const Releases = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Img src="/img/release-empty" alt="Empty Sidewalks EP" />
+          <Img src="/img/release-empty.jpg" alt="Empty Sidewalks EP" />
         </a>
       </div>
       <div className="grid grid-cols-4 mt-8 mb-2 music-links">
