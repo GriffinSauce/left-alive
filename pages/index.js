@@ -126,9 +126,10 @@ const Home = ({ content, futureShows }) => {
             <h3 className="text-4xl text-white sm:text-5xl">
               <AirtableContent content={content.newsletterHeader} />
             </h3>
-            <p className="text-lg text-white">
-              <AirtableContent content={content.newsletterBody} />
-            </p>
+            <AirtableContent
+              className="text-lg text-white"
+              content={content.newsletterBody}
+            />
             <NewsletterForm />
           </div>
         </section>

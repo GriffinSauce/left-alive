@@ -30,7 +30,9 @@ const NewsletterForm = () => {
         <div className="grid gap-3">
           <p>
             <label htmlFor="name">
-              <div className="text-left text-white label">Your name</div>
+              <span className="block text-left text-white label">
+                Your name
+              </span>
               <input
                 id="name"
                 className="text-center"
@@ -51,7 +53,9 @@ const NewsletterForm = () => {
           </p>
           <p>
             <label htmlFor="email">
-              <div className="text-left text-white label">Your email</div>
+              <span className="block text-left text-white label">
+                Your email
+              </span>
               <input
                 id="email"
                 className="text-center"
