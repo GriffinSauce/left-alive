@@ -28,8 +28,8 @@ const ShowStructuredData = ({ show }) => {
         ? {
             offers: {
               '@type': 'Offer',
-              price: show.price.substring(1),
-              priceCurrency: show.price.substring(0, 1),
+              price: show.price?.substring(1),
+              priceCurrency: show.price?.substring(0, 1),
               url: show.eventLink,
               category: 'primary',
               availability: 'inStock',
