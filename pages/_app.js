@@ -47,7 +47,7 @@ const App = ({ Component, pageProps }) => {
         />
         <link
           rel="preload"
-          href="https://use.typekit.net/fue2pbb.css"
+          href="https://use.typekit.net/nmv6zoi.css"
           as="style"
         />
         <link
@@ -55,7 +55,7 @@ const App = ({ Component, pageProps }) => {
           rel="stylesheet"
           type="text/css"
         />
-        <link rel="stylesheet" href="https://use.typekit.net/fue2pbb.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/nmv6zoi.css" />
 
         <script
           async
