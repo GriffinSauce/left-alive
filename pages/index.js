@@ -17,22 +17,22 @@ import Anchor from '../components/Anchor';
 import Footer from '../components/Footer';
 import { getContentByKey, getUpcomingShows } from '../services/db';
 
-// Keep this a complete class to tailwind purge doesn't kill it
-const COLUMN_V_GAP = 'gap-12';
+const Grid = ({ as: Component = 'div', className = '', children }) => (
+  <Component className={`grid gap-12 ${className}`}>{children}</Component>
+);
 
 const Home = ({ content, futureShows }) => {
   return (
     <div className="bg-gray-300">
       <Nav />
       <Hero />
-
-      <div className={`container grid ${COLUMN_V_GAP} -mt-10 sm:-mt-40`}>
-        <section className="">
+      <Grid className="container relative -mt-10 sm:-mt-40">
+        <section className="bg-white">
           <h2 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
             <AirtableContent content={content.header} />
           </h2>
 
-          <div className="grid gap-3 p-6 text-lg bg-white">
+          <div className="grid gap-3 p-6 text-lg">
             <AirtableContent content={content.bio} className="grid gap-3" />
 
             <div className="min-w-0">
@@ -57,7 +57,7 @@ const Home = ({ content, futureShows }) => {
           </div>
         </section>
 
-        <section className={`grid ${COLUMN_V_GAP} sm:grid-cols-2 sm:gap-6`}>
+        <Grid as="section" className="sm:grid-cols-2 sm:gap-6">
           <div>
             <Anchor id="music" />
             <a
@@ -79,11 +79,11 @@ const Home = ({ content, futureShows }) => {
             <Youtube title="Leave it video" videoId="jFz6peaugVo" />
             <Youtube title="Empty Sidewalks video" videoId="1NOkjNYO58g" />
           </div>
-        </section>
+        </Grid>
 
         <MerchBanner />
 
-        <section className={`grid ${COLUMN_V_GAP} sm:grid-cols-2 sm:gap-6`}>
+        <Grid as="section" className="sm:grid-cols-2 sm:gap-6">
           <div>
             <Anchor id="socials" />
             <a
@@ -118,13 +118,22 @@ const Home = ({ content, futureShows }) => {
               <InstaFeed />
             </div>
           </div>
-        </section>
+        </Grid>
 
         <section
-          className="flex flex-col items-center py-12 text-center bg-cover bg-primary-500 newsletter"
+          className="relative flex flex-col items-center py-12 text-center bg-cover bg-primary-500"
           id="newsletter"
         >
-          <div className="grid max-w-xs gap-4">
+          <Image
+            src="/img/contact_bg.jpg"
+            alt=""
+            quality={85}
+            layout="fill"
+            loading="lazy"
+            objectFit="cover"
+            objectPosition="50% 25%"
+          />
+          <div className="relative grid max-w-xs gap-4">
             <h3 className="text-4xl text-white sm:text-5xl">
               <AirtableContent content={content.newsletterHeader} />
             </h3>
@@ -147,14 +156,8 @@ const Home = ({ content, futureShows }) => {
             <a href="https://instagram.com/leftaliveband">Instagram</a>
           </p>
         </div>
-      </div>
+      </Grid>
       <Footer />
-      <style jsx>{`
-        .newsletter {
-          background-image: url('/img/contact_bg.jpg');
-          background-position: 50% 25%;
-        }
-      `}</style>
     </div>
   );
 };

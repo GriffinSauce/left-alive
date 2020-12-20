@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Hero = ({ compact = false }) => (
   <>
@@ -15,12 +16,15 @@ const Hero = ({ compact = false }) => (
         </Link>
       </header>
     </div>
-    <div
-      className="w-full bg-center bg-cover hero-image bg-grey-900"
-      style={{
-        backgroundImage: 'url(/img/hero.jpg)',
-      }}
-    />
+    <div className="relative z-0 w-full bg-grey-900 hero-image">
+      <Image
+        src="/img/hero.jpg"
+        alt="The band on stage at Westerpop"
+        quality={85}
+        layout="fill"
+        objectFit="cover"
+      />
+    </div>
     <style jsx>{`
       .hero-image {
         height: 250px;
