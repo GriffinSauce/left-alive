@@ -38,7 +38,7 @@ const FacebookFeed = () => {
           </a>
           <div className="grid gap-2">
             <div
-              className="text-sm"
+              className="text-sm break-all"
               dangerouslySetInnerHTML={{
                 __html: item.message,
               }}

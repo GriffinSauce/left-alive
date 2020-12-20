@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from './Logo';
 
 const Hero = ({ compact = false }) => (
   <>
@@ -7,11 +8,7 @@ const Hero = ({ compact = false }) => (
       <header role="banner" className="container flex justify-center">
         <Link href="/">
           <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}>
-            <img
-              alt="Left Alive - pop punk from the heart"
-              id="headerimg"
-              src="/img/logo.svg"
-            />
+            <Logo color="black" />
           </a>
         </Link>
       </header>

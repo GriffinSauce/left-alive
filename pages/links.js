@@ -2,6 +2,7 @@ import { AiOutlineLink } from 'react-icons/ai';
 import { SiSpotify, SiInstagram, SiApplemusic } from 'react-icons/si';
 import NextLink from 'next/link';
 import { getLinks } from '../services/db';
+import Logo from '../components/Logo';
 
 const Link = ({ href, children, thumbnail }) => {
   const onClick = () => {
@@ -41,7 +42,7 @@ const Links = ({ links }) => {
         <header className="text-center">
           <NextLink href="/" as="/">
             <a className="inline-block w-3/4 text-white">
-              <img alt="Left Alive" src="/img/logo-white.svg" />
+              <Logo color="white" />
             </a>
           </NextLink>
         </header>
