@@ -17,7 +17,7 @@ const About = ({ content, futureShows }) => {
         <Nav />
         <Hero />
 
-        <article className="container grid -mt-10 sm:-mt-40">
+        <article className="container relative grid -mt-10 sm:-mt-40">
           <h1 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
             <AirtableContent content={content.header} />
           </h1>

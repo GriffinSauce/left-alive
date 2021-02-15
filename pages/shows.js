@@ -16,7 +16,7 @@ const Shows = ({ shows }) => {
         <Nav />
         <Hero compact />
 
-        <article className="container grid -mt-10 sm:-mt-48">
+        <article className="container relative grid -mt-10 sm:-mt-48">
           <h1 className="py-4 text-3xl text-center bg-white sm:text-5xl">
             shows
           </h1>
