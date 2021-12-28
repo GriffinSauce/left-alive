@@ -2,17 +2,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from './Logo';
 
-const Hero = ({ compact = false }) => (
+const Hero = ({ compact = false, noLogo = false }) => (
   <>
-    <div className="bg-white">
-      <header role="banner" className="container flex justify-center">
-        <Link href="/">
-          <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}>
-            <Logo color="black" />
-          </a>
-        </Link>
-      </header>
-    </div>
+    {!noLogo && (
+      <div className="bg-white">
+        <header role="banner" className="container flex justify-center">
+          <Link href="/">
+            <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}>
+              <Logo color="black" />
+            </a>
+          </Link>
+        </header>
+      </div>
+    )}
     <div className="relative z-0 w-full bg-grey-900 hero-image">
       <Image
         src="/img/hero.jpg"
