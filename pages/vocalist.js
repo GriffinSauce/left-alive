@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
-import AirtableContent from '../components/AirtableContent';
-import ShowsWidget from '../components/ShowsWidget';
 import Footer from '../components/Footer';
 
-const About = ({}) => {
+const About = () => {
   return (
     <>
       <Head>
