@@ -1,7 +1,5 @@
 module.exports = {
-  purge: {
-    content: ['./components/**/*.js', './pages/**/*.js'],
-  },
+  content: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
     container: {
       center: true,
@@ -38,7 +36,7 @@ module.exports = {
         },
       },
       spacing: {
-        '14': '3.5rem',
+        14: '3.5rem',
       },
       padding: {
         full: '100%',
