@@ -28,30 +28,20 @@ const Home = ({ content, futureShows }) => {
       <Hero />
       <Grid className="container relative -mt-10 sm:-mt-40">
         <section className="bg-white">
-          <h2 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
-            <AirtableContent content={content.header} />
-          </h2>
-
           <div className="grid gap-3 p-6 text-lg">
-            <AirtableContent content={content.bio} className="grid gap-3" />
+            <h2 className="text-6xl text-blue-500 sm:text-9xl">
+              <div>WE ARE</div>
+              <div>LEFT ALIVE</div>
+            </h2>
 
-            <div className="min-w-0">
-              <Image
-                src="/img/bandpic.jpg"
-                alt="The band on stage at Westerpop"
-                loading="lazy"
-                width={2000}
-                height={2000}
-                quality={90}
-              />
-            </div>
+            <AirtableContent content={content.bio} className="grid gap-3" />
 
             <h2 className="mt-6">Upcoming shows</h2>
             <ShowsWidget shows={futureShows} />
             <Link href="/shows">
-              <a className="flex items-center justify-between p-3 transition-colors duration-75 font-display bg-primary-500 hover:bg-secondary-600">
-                <span className="text-white">All shows</span>
-                <FiChevronRight className="text-white" />
+              <a className="no-underline flex items-center justify-between p-3 transition-colors duration-75 font-display text-white hover:text-white bg-primary-500 hover:bg-blue-500">
+                <span>All shows</span>
+                <FiChevronRight />
               </a>
             </Link>
           </div>
@@ -90,6 +80,7 @@ const Home = ({ content, futureShows }) => {
               href="https://facebook.com/leftaliveband"
               target="_blank"
               rel="noopener noreferrer"
+              className="!no-underline"
             >
               <Button color="facebook">
                 <FaFacebookF className="mr-4 text-4xl" />
@@ -108,6 +99,7 @@ const Home = ({ content, futureShows }) => {
               href="https://www.instagram.com/leftaliveband/"
               target="_blank"
               rel="noopener noreferrer"
+              className="!no-underline"
             >
               <Button color="instagram">
                 <FaInstagram className="mr-4 text-4xl" />

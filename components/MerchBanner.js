@@ -33,7 +33,7 @@ const MerchBanner = () => {
         </div>
         <button
           type="button"
-          className="inline-block px-24 py-5 text-xl text-white button bg-secondary-500 font-display"
+          className="inline-block px-24 py-5 text-xl text-white button bg-blue-500 font-display"
         >
           See more
         </button>

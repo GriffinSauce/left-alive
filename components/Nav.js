@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const NavLink = ({ children, href, target, rel }) => {
   const className =
-    'block p-2 text-sm text-gray-700 border-b-2 border-white sm:p-3 sm:text-base hover:font-semibold hover:text-secondary-600 hover:border-secondary-600';
+    'block p-2 text-sm text-primary-500 !no-underline sm:p-3 sm:text-base font-semibold hover:font-bold';
   if (href.startsWith('http'))
     return (
       <li>
@@ -24,7 +24,7 @@ const NavLink = ({ children, href, target, rel }) => {
 const Nav = () => {
   return (
     <>
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white">
         <nav className="container">
           <ul className="flex justify-between max-w-full m-auto text-center">
             <NavLink href="/">Home</NavLink>

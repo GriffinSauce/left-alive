@@ -63,10 +63,10 @@ input {
 }
 
 a {
-  @apply text-primary-500;
+  @apply text-primary-500 decoration-secondary-500 underline underline-offset-4;
 }
 a:hover {
-  @apply text-secondary-500;
+  @apply text-blue-600;
 }
 
 @tailwind components;
