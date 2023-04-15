@@ -23,7 +23,7 @@ const Grid = ({ as: Component = 'div', className = '', children }) => (
 
 const Home = ({ content, futureShows }) => {
   return (
-    <div className="bg-gray-300">
+    <div className="bg-[#2d1425]">
       <Nav />
       <Hero />
       <Grid className="container relative -mt-10 sm:-mt-40">
@@ -116,15 +116,6 @@ const Home = ({ content, futureShows }) => {
           className="relative flex flex-col items-center py-12 text-center bg-cover bg-primary-500"
           id="newsletter"
         >
-          <Image
-            src="/img/contact_bg.jpg"
-            alt=""
-            quality={85}
-            layout="fill"
-            loading="lazy"
-            objectFit="cover"
-            objectPosition="50% 25%"
-          />
           <div className="relative grid max-w-xs gap-4">
             <h3 className="text-4xl text-white sm:text-5xl">
               <AirtableContent content={content.newsletterHeader} />
@@ -137,15 +128,31 @@ const Home = ({ content, futureShows }) => {
           </div>
         </section>
 
-        <div className="grid gap-3 text-center">
+        <div className="grid gap-3 text-center text-white">
           <h3 className="text-2xl">Contact</h3>
           <p>
-            <a href="mailto:mail@leftalive.nl">mail@leftalive.nl</a>
+            <a
+              className="text-primary-300 no-underline"
+              href="mailto:mail@leftalive.nl"
+            >
+              mail@leftalive.nl
+            </a>
           </p>
           <p>
             or send us a message on{' '}
-            <a href="https://facebook.com/leftaliveband">Facebook</a> or{' '}
-            <a href="https://instagram.com/leftaliveband">Instagram</a>
+            <a
+              className="text-primary-300 no-underline"
+              href="https://facebook.com/leftaliveband"
+            >
+              Facebook
+            </a>{' '}
+            or{' '}
+            <a
+              className="text-primary-300 no-underline"
+              href="https://instagram.com/leftaliveband"
+            >
+              Instagram
+            </a>
           </p>
         </div>
       </Grid>
