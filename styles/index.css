@@ -3,7 +3,7 @@
 html {
   font-size: 15px;
   font-family: 'Lato', sans-serif;
-  @apply text-gray-800;
+  @apply text-white bg-black;
 }
 
 /**
@@ -22,7 +22,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  @apply font-normal leading-tight font-display text-primary-500;
+  @apply font-normal leading-tight font-display;
 }
 
 h1,
@@ -63,11 +63,14 @@ input {
 }
 
 a {
-  @apply text-primary-500 decoration-secondary-500 underline underline-offset-4;
-}
-a:hover {
-  @apply text-blue-600;
+  @apply text-primary-600;
 }
 
 @tailwind components;
 @tailwind utilities;
+
+.stroke-text-primary {
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #e30387;
+}

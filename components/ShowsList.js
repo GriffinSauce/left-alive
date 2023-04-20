@@ -52,7 +52,7 @@ const Show = ({ show }) => {
               />
             </Truncate>
           </section>
-          <section className="block py-2 bg-gray-100 border-b text-primary-500 sm:border-l sm:border-b-0">
+          <section className="block py-2 bg-gray-100 border-b text-primary-600 sm:border-l sm:border-b-0">
             <a
               className="block px-4 py-2"
               target="_blank"

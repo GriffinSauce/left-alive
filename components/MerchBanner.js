@@ -5,11 +5,11 @@ const MerchBanner = () => {
         href="https://www.epicmerchstore.com/collection/artists/left-alive/"
         target="_blank"
         rel="noopener noreferrer"
-        className="block p-6 text-center bg-white bg-left-bottom bg-no-repeat merch"
+        className="block p-6 text-center bg-left-bottom bg-no-repeat merch"
         id="merch"
       >
-        <h2 className="my-6 text-3xl text-black">MERCH</h2>
-        <p className="inline-block text-xl text-black">
+        <h2 className="my-6 text-3xl text-white">MERCH</h2>
+        <p className="inline-block text-xl text-white">
           Get some at Epic Merch Store!
           <span className="block h-1 mt-2 bg-secondary-500" />
         </p>

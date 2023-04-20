@@ -5,17 +5,21 @@ import Logo from './Logo';
 const Hero = ({ compact = false, noLogo = false }) => (
   <>
     {!noLogo && (
-      <div className="bg-white">
-        <header role="banner" className="container flex justify-center">
-          <Link href="/">
-            <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-8`}`}>
-              <Logo className="fill-jet-800" />
-            </a>
-          </Link>
-        </header>
-      </div>
+      <header role="banner" className="container flex justify-center">
+        <Link href="/">
+          <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-28`}`}>
+            <Image
+              src="/img/logo.png"
+              alt="Left Alive logo"
+              quality={100}
+              width={1497}
+              height={149}
+            />
+          </a>
+        </Link>
+      </header>
     )}
-    <div className="relative z-0 w-full bg-grey-900 hero-image border-t-8 border-b-8 border-primary-500">
+    <div className="relative z-0 w-full hero-image">
       <Image
         src="/img/hero.jpg"
         alt="The band"

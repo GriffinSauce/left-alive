@@ -18,7 +18,7 @@ const FacebookFeed = () => {
       {data.posts.items.map((item) => (
         <li
           key={item.id}
-          className="w-full p-3 break-words bg-white border-b border-grey-100"
+          className="w-full p-3 break-words border-b border-gray-800"
         >
           <a
             href="poster_url"

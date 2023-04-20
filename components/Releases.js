@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
 const Img = ({ src, alt }) => (
-  <div className="min-w-0">
+  <div className="min-w-0 relative aspect-square">
     <Image
       src={src}
       alt={alt}
       loading="lazy"
-      width={400}
-      height={400}
+      layout="fill"
+      fit="contain"
       quality={80}
     />
   </div>
@@ -16,7 +16,7 @@ const Img = ({ src, alt }) => (
 const Releases = () => {
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 releases">
+      <div className="grid grid-cols-2 gap-1 releases">
         <a
           href="https://open.spotify.com/track/1oxMxW9wyF7AgP3QSRHSbX"
           target="_blank"

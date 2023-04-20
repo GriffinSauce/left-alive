@@ -15,7 +15,7 @@ const About = () => {
         <Hero noLogo />
 
         <article className="container relative grid -mt-10 sm:-mt-40">
-          <h1 className="py-4 text-3xl text-center text-white bg-primary-500 sm:text-5xl">
+          <h1 className="py-4 text-3xl text-center text-white bg-primary-600 sm:text-5xl">
             Left Alive zoekt een podiumbeest!
           </h1>
 
@@ -43,7 +43,7 @@ const About = () => {
               <hr className="my-3" />
 
               <div>
-                <p className="font-bold text-primary-500">Wij zoeken een:</p>
+                <p className="font-bold text-primary-600">Wij zoeken een:</p>
                 <h2>Ervaren frontvrouw/-man/-x</h2>
               </div>
 
