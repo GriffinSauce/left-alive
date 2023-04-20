@@ -6,7 +6,11 @@ const Hero = ({ compact = false, noLogo = false }) => (
     {!noLogo && (
       <header role="banner" className="container flex justify-center">
         <Link href="/">
-          <a className={`block ${compact ? `w-1/2 py-4` : `w-full py-28`}`}>
+          <a
+            className={`block ${
+              compact ? `w-1/2 py-4` : `w-full px-6 py-16 sm:py-28`
+            }`}
+          >
             <Image
               src="/img/logo.png"
               alt="Left Alive logo"
