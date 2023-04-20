@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from './Logo';
 
 const Hero = ({ compact = false, noLogo = false }) => (
   <>
