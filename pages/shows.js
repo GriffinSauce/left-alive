@@ -16,10 +16,10 @@ const Shows = ({ shows }) => {
         <Nav />
         <Hero compact />
 
-        <article className="container relative grid -mt-10 sm:-mt-48">
-          <h1 className="py-4 text-3xl text-center sm:text-5xl">shows</h1>
+        <article className="sm:container relative grid sm:-mt-40">
+          <div className="bg-black grid gap-3 p-6 text-lg">
+            <h1 className="py-4 text-6xl sm:text-5xl">Shows</h1>
 
-          <div className="grid gap-3 p-6 text-lg">
             <ShowsList shows={shows} />
           </div>
         </article>

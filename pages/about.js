@@ -15,9 +15,9 @@ const About = ({ content, futureShows }) => {
       </Head>
       <div>
         <Nav />
-        <Hero />
+        <Hero compact />
 
-        <article className="container relative grid -mt-10 sm:-mt-40">
+        <article className="sm:container relative grid sm:-mt-40">
           <div className="bg-black grid gap-6">
             <div className="grid gap-3 p-6 text-lg">
               <h1 className="py-4 text-6xl sm:text-5xl">
