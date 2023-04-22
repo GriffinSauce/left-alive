@@ -3,7 +3,8 @@
 html {
   font-size: 15px;
   font-family: 'Lato', sans-serif;
-  @apply text-white bg-black;
+  background-color: #0c060a;
+  @apply text-white;
 }
 
 /**

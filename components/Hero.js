@@ -8,7 +8,7 @@ const Hero = ({ compact = false, noLogo = false }) => (
         <Link href="/">
           <a
             className={`block ${
-              compact ? `w-1/2 py-4` : `w-full px-6 py-16 sm:py-28`
+              compact ? `w-1/2 py-4` : `w-full px-6 py-12 sm:py-24`
             }`}
           >
             <Image

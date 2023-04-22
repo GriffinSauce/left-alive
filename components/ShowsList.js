@@ -27,7 +27,7 @@ const Show = ({ show }) => {
         <Anchor id={show.id} />
         <ShowStructuredData show={show} />
         <h1 className="flex flex-col sm:block">
-          <span className="text-secondary-600">
+          <span className="text-secondary-500">
             {format(date, `MMMM do yyyy`)}
           </span>
           <span className="hidden mx-2 sm:inline">/</span>
@@ -35,7 +35,7 @@ const Show = ({ show }) => {
         </h1>
 
         <div className="flex flex-col-reverse grid-flow-col grid-cols-2 sm:grid">
-          <section className="p-4 text-base bg-gray-100">
+          <section className="p-4 text-base bg-gray-900">
             {thumbnails ? (
               <ModalImage
                 className="w-48 mb-3 rounded"
@@ -52,7 +52,7 @@ const Show = ({ show }) => {
               />
             </Truncate>
           </section>
-          <section className="block py-2 bg-gray-100 border-b text-primary-600 sm:border-l sm:border-b-0">
+          <section className="block py-2 bg-gray-900 border-b text-primary-600 sm:border-l sm:border-b-0 border-gray-800">
             <a
               className="block px-4 py-2"
               target="_blank"
@@ -105,7 +105,7 @@ const Show = ({ show }) => {
 
 const ShowsList = ({ shows }) => {
   return (
-    <ul className="grid gap-10 break-words bg-white sm:gap-20">
+    <ul className="grid gap-10 break-wordssm:gap-20">
       {shows.map((show) => (
         <Show key={show.id} show={show} />
       ))}

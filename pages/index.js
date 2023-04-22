@@ -1,10 +1,9 @@
-import { FaSpotify, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FiChevronRight } from 'react-icons/fi';
 import Link from 'next/link';
 import Nav from '../components/Nav';
-import Releases from '../components/Releases';
+import Platforms from '../components/Platforms';
 import MerchBanner from '../components/MerchBanner';
-import FacebookFeed from '../components/FacebookFeed';
 import InstaFeed from '../components/InstaFeed';
 import NewsletterForm from '../components/NewsletterForm';
 import Youtube from '../components/Youtube';
@@ -22,10 +21,10 @@ const Grid = ({ as: Component = 'div', className = '', children }) => (
 
 const Home = ({ content, futureShows }) => {
   return (
-    <div className="bg-[#0c060a]">
+    <div>
       <Nav />
       <Hero />
-      <div className="container relative -mt-10 sm:-mt-40">
+      <div className="sm:container relative sm:-mt-40">
         <Grid className="p-6 bg-black">
           <section>
             <div className="grid gap-3 text-lg">
@@ -44,73 +43,55 @@ const Home = ({ content, futureShows }) => {
               <h2 className="mt-6">Upcoming shows</h2>
               <ShowsWidget shows={futureShows} />
               <Link href="/shows">
-                <a className="no-underline flex items-center justify-between p-3 transition-colors duration-75 font-display text-white hover:text-white bg-primary-600 hover:bg-blue-500">
-                  <span>All shows</span>
+                <a className="no-underline flex items-center justify-between p-3 transition-colors duration-75 font-display text-white hover:text-white bg-gray-800 hover:text-pink-600">
+                  <span>See all shows</span>
                   <FiChevronRight />
                 </a>
               </Link>
             </div>
           </section>
 
-          <Grid as="section" className="sm:grid-cols-2 sm:gap-6">
+          <Grid as="section" className="sm:gap-6">
             <div>
               <Anchor id="music" />
-              <a
-                href="https://open.spotify.com/artist/128KZvfmYDa6R9uuma8u1A"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button color="spotify">
-                  <FaSpotify className="mr-4 text-4xl" />
-                  Listen on Spotify
-                </Button>
-              </a>
-              <div className="pt-1 releases">
-                <Releases />
-              </div>
+              <Youtube
+                title="Promise video"
+                videoId="ypjM2_CkeXs"
+                aspectRatio="21/9"
+              />
             </div>
-            <div className="grid gap-3">
-              <Youtube title="Promise video" videoId="ypjM2_CkeXs" />
-              <Youtube title="Leave it video" videoId="jFz6peaugVo" />
-              <Youtube title="Empty Sidewalks video" videoId="1NOkjNYO58g" />
-            </div>
+            <Platforms />
           </Grid>
 
           <MerchBanner />
 
-          <Grid as="section" className="sm:grid-cols-2 sm:gap-6">
+          <Grid as="section">
             <div>
               <Anchor id="socials" />
-              <a
-                href="https://facebook.com/leftaliveband"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="!no-underline"
-              >
-                <Button color="facebook">
-                  <FaFacebookF className="mr-4 text-4xl" />
-                  Like us on Facebook
-                </Button>
-              </a>
-              <div className="p-3">
-                Like us to get the latest news on shows and other adventures!
+              <div className="grid gap-1 sm:grid-cols-2 sm:gap-1">
+                <a
+                  href="https://www.instagram.com/leftaliveband/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="!no-underline"
+                >
+                  <Button color="instagram">
+                    <FaInstagram className="mr-4 text-4xl" />
+                    Follow us on instagram
+                  </Button>
+                </a>
+                <a
+                  href="https://facebook.com/leftaliveband"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="!no-underline"
+                >
+                  <Button color="facebook">
+                    <FaFacebookF className="mr-4 text-4xl" />
+                    Like us on Facebook
+                  </Button>
+                </a>
               </div>
-              <div className="border-t btn-after facebook-feed border-gray-800">
-                <FacebookFeed />
-              </div>
-            </div>
-            <div>
-              <a
-                href="https://www.instagram.com/leftaliveband/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="!no-underline"
-              >
-                <Button color="instagram">
-                  <FaInstagram className="mr-4 text-4xl" />
-                  Follow us on instagram
-                </Button>
-              </a>
               <div className="mt-1">
                 <InstaFeed />
               </div>
