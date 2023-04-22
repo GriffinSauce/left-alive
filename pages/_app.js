@@ -30,32 +30,12 @@ const App = ({ Component, pageProps }) => {
         />
         <meta property="og:site_name" content="Left Alive" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          rel="preconnect"
-          href="https://p.typekit.net"
-          crossOrigin="true"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&display=swap"
-          as="style"
-        />
-        <link
-          rel="preload"
-          href="https://use.typekit.net/nmv6zoi.css"
-          as="style"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,800;0,900;1,900&display=swap"
           rel="stylesheet"
-          type="text/css"
         />
-        <link rel="stylesheet" href="https://use.typekit.net/nmv6zoi.css" />
 
         <script
           async

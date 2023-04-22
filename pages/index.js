@@ -30,7 +30,12 @@ const Home = ({ content, futureShows }) => {
           <section>
             <div className="grid gap-3 text-lg">
               <h2 className="text-6xl sm:text-9xl">
-                <div className="stroke-text-primary">WE ARE</div>
+                <div className="stroke-text-primary">
+                  WE ARE
+                  <div className="stroke-text-primary-foreground" aria-hidden>
+                    WE ARE
+                  </div>
+                </div>
                 <div>LEFT ALIVE</div>
               </h2>
 

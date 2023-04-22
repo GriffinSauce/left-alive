@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Lato', 'sans-serif'],
-        display: ['Cubano', 'sans-serif'],
+        display: ['Mulish', 'sans-serif'],
       },
       colors: {
         // Pink

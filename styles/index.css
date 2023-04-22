@@ -70,7 +70,14 @@ a {
 @tailwind utilities;
 
 .stroke-text-primary {
+  position: relative;
   -webkit-text-fill-color: black;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #e30387;
+}
+.stroke-text-primary-foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-text-stroke-width: 0;
 }
