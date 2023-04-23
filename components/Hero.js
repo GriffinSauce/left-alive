@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from './Logo';
 
 const Hero = ({ compact = false, noLogo = false }) => (
   <>
@@ -11,13 +12,7 @@ const Hero = ({ compact = false, noLogo = false }) => (
               compact ? `w-1/2 py-4` : `w-full px-6 py-12 sm:py-24`
             }`}
           >
-            <Image
-              src="/img/logo.png"
-              alt="Left Alive logo"
-              quality={100}
-              width={1497}
-              height={149}
-            />
+            <Logo />
           </a>
         </Link>
       </header>
