@@ -52,7 +52,7 @@ const Show = ({ show }) => {
               />
             </Truncate>
           </section>
-          <section className="block py-2 bg-gray-900 border-b text-primary-600 sm:border-l sm:border-b-0 border-gray-800">
+          <section className="block py-2 bg-gray-900 text-primary-600 border-b sm:border-l sm:border-b-0 border-gray-800">
             <a
               className="block px-4 py-2"
               target="_blank"
@@ -61,11 +61,13 @@ const Show = ({ show }) => {
                 renderAddress(show.venue.address, show.venue.city),
               )}`}
             >
-              <div className="mb-3 font-sans font-bold">{show.venue.name}</div>
+              <div className="mb-3 font-display font-bold text-2xl">
+                {show.venue.name}
+              </div>
 
               <div className="flex items-center">
                 <FiMap className="mr-2" />
-                <span>
+                <span className="text-white">
                   {renderAddress(show.venue.address, show.venue.city)}
                 </span>
               </div>
@@ -73,12 +75,12 @@ const Show = ({ show }) => {
 
             <div className="flex items-center px-4 py-2">
               <FiClock className="mr-2" />
-              <span>{show.doors}</span>
+              <span className="text-white">{show.doors}</span>
             </div>
 
             <div className="flex items-center px-4 py-2">
               <RiMoneyEuroCircleLine className="mr-2" />
-              <span>{show.price}</span>
+              <span className="text-white">{show.price}</span>
             </div>
 
             {show.eventLink ? (
@@ -89,8 +91,8 @@ const Show = ({ show }) => {
                 href={show.eventLink}
               >
                 <div className="flex items-center">
-                  <FiExternalLink className="flex-shrink-0 mr-2" />
-                  <span className="w-56 truncate">
+                  <FiExternalLink className="text-primary-600 flex-shrink-0 mr-2" />
+                  <span className="w-56 truncate text-white">
                     {show.eventLink.replace(/^http(s)?:\/\/(www\.)?/, '')}
                   </span>
                 </div>
