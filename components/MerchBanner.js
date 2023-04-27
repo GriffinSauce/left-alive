@@ -5,7 +5,7 @@ const MerchBanner = () => {
         href="https://www.epicmerchstore.com/collection/artists/left-alive/"
         target="_blank"
         rel="noopener noreferrer"
-        className="block p-6 text-center bg-left-bottom bg-no-repeat merch"
+        className="block p-6 text-center bg-left-bottom bg-no-repeat merch bg-bottom"
         id="merch"
       >
         <h2 className="my-6 text-3xl text-white">MERCH</h2>
