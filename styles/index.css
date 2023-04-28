@@ -74,7 +74,7 @@ a {
   position: relative;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #e30387;
+  -webkit-text-stroke-color: #ff0099;
 }
 .stroke-text-primary-foreground {
   position: absolute;

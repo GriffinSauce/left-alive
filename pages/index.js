@@ -118,7 +118,7 @@ const Home = ({ content, futureShows }) => {
             <h3 className="text-2xl">Contact</h3>
             <p>
               <a
-                className="text-primary-300 no-underline"
+                className="text-primary-200 no-underline"
                 href="mailto:mail@leftalive.nl"
               >
                 mail@leftalive.nl
@@ -127,14 +127,14 @@ const Home = ({ content, futureShows }) => {
             <p>
               or send us a message on{' '}
               <a
-                className="text-primary-300 no-underline"
+                className="text-primary-200 no-underline"
                 href="https://facebook.com/leftaliveband"
               >
                 Facebook
               </a>{' '}
               or{' '}
               <a
-                className="text-primary-300 no-underline"
+                className="text-primary-200 no-underline"
                 href="https://instagram.com/leftaliveband"
               >
                 Instagram
