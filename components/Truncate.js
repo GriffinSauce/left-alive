@@ -15,7 +15,7 @@ const Truncate = ({ children, maxHeight }) => {
       {isCollapsed ? (
         <button
           type="button"
-          className="flex flex-col items-center justify-center w-full p-3 pb-0 border-t border-gray-300"
+          className="flex flex-col items-center justify-center w-full p-3 pb-0 border-t border-gray-700"
           onClick={() => setIsCollapsed(false)}
         >
           <span>read more</span>
@@ -37,8 +37,8 @@ const Truncate = ({ children, maxHeight }) => {
           height: 50px;
           background: linear-gradient(
             0deg,
-            rgba(247, 250, 252, 1) 0%,
-            rgba(247, 250, 252, 0) 100%
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
           );
           bottom: 0;
           left: 0;
