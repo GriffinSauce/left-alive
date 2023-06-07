@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
@@ -117,7 +119,15 @@ module.exports = {
     borderRadius: ['responsive', 'first', 'last'],
     borderColor: ['hover'],
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.squiggle': {
+          filter: 'url(#squiggle)',
+        },
+      });
+    }),
+  ],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
