@@ -7,7 +7,7 @@ const Footer = () => {
       <p>
         Built by{' '}
         <a
-          className="text-gray-500 underline"
+          className="text-gray-500 no-underline"
           href="https://github.com/GriffinSauce/"
           rel="noopener noreferrer"
           target="_blank"

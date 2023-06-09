@@ -1,53 +1,7 @@
-import Image from 'next/image';
-
-const Img = ({ src, alt }) => (
-  <div className="min-w-0">
-    <Image
-      src={src}
-      alt={alt}
-      loading="lazy"
-      width={400}
-      height={400}
-      quality={80}
-    />
-  </div>
-);
-
-const Releases = () => {
+const Platforms = () => {
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 releases">
-        <a
-          href="https://open.spotify.com/track/1oxMxW9wyF7AgP3QSRHSbX"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img src="/img/release-promise.jpg" alt="Promise single" />
-        </a>
-        <a
-          href="https://open.spotify.com/track/5wCDNamRAJvFyHWjm9l5y2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img src="/img/release-liars.jpg" alt="Liars single" />
-        </a>
-        <a
-          href="https://open.spotify.com/track/51josIdonJjiuQaTU7ISpV"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img src="/img/release-leaveit.jpg" alt="Leave it single" />
-        </a>
-        <a
-          className="border border-gray-300"
-          href="https://open.spotify.com/album/56uLvj0p9a24aUwFvPUBrQ"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Img src="/img/release-empty.jpg" alt="Empty Sidewalks EP" />
-        </a>
-      </div>
-      <div className="grid grid-cols-4 mt-8 mb-2 music-links">
+      <div className="grid grid-cols-4">
         <a
           className="text-xs text-center"
           href="https://music.apple.com/us/artist/left-alive/1073464999"
@@ -109,4 +63,4 @@ const Releases = () => {
   );
 };
 
-export default Releases;
+export default Platforms;

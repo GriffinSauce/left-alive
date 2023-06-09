@@ -11,7 +11,7 @@ const Button = ({
     base: 'p-5',
   };
   const colors = {
-    primary: 'bg-primary-500 text-white hover:bg-white hover:text-primary-500',
+    primary: 'bg-primary-600 text-white hover:bg-white hover:text-primary-600',
     secondary:
       'bg-secondary-500 text-white hover:bg-white hover:text-secondary-500',
     spotify: 'bg-spotify-500 text-white hover:bg-spotify-300',
